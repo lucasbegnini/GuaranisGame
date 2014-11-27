@@ -12,10 +12,22 @@ public class Movimentacao : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKey(KeyCode.LeftArrow))
-			rigidbody2D.AddForce(-50*Vector2.right);
+			GoLeft();
 		else if(Input.GetKey(KeyCode.RightArrow))
-			rigidbody2D.AddForce(50*Vector2.right);
+			GoRight();
 		if(Input.GetKey(KeyCode.Space))
-			rigidbody2D.AddForce(50*Vector2.up);
+			Jump();
+	}
+
+	void GoLeft() {
+		rigidbody2D.AddForce(-50*Vector2.right);
+	}
+
+	void GoRight() {
+		rigidbody2D.AddForce(50*Vector2.right);
+	}
+
+	void Jump() {
+		rigidbody2D.AddForce(50*Vector2.up);
 	}
 }
