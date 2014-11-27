@@ -4,6 +4,7 @@ using System.Collections;
 public class Movimentacao : MonoBehaviour {
 
 
+	public int velocidade;
 	// Use this for initialization
 	void Start () {
 	
@@ -20,14 +21,14 @@ public class Movimentacao : MonoBehaviour {
 	}
 
 	void GoLeft() {
-		rigidbody2D.AddForce(-50*Vector2.right);
+		rigidbody2D.AddForce(-velocidade*Vector2.right*Time.deltaTime);
 	}
 
 	void GoRight() {
-		rigidbody2D.AddForce(50*Vector2.right);
+		rigidbody2D.AddForce(velocidade*Vector2.right*Time.deltaTime);
 	}
 
 	void Jump() {
-		rigidbody2D.AddForce(50*Vector2.up);
+		rigidbody2D.AddForce(velocidade*Vector2.up*Time.deltaTime);
 	}
 }
