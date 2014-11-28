@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movimentacao : MonoBehaviour {
-
-
+public class Controles : MonoBehaviour {
+	
+	public GameObject missile;
+	private GameObject _missile;
 	public int velocidade;
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,8 @@ public class Movimentacao : MonoBehaviour {
 			GoRight();
 		if(Input.GetKey(KeyCode.Space))
 			Jump();
+		if(Input.GetKeyDown(KeyCode.K))
+			Atirar();
 	}
 
 	void GoLeft() {
@@ -31,4 +34,11 @@ public class Movimentacao : MonoBehaviour {
 	void Jump() {
 		rigidbody2D.AddForce(velocidade*Vector2.up*Time.deltaTime);
 	}
+
+	void Atirar(){
+		_missile = GameObject.Instantiate(missile) as GameObject;
+		_missile.transform.parent = transform;
+		_missile.SendMessage("Starting",true);
+	}
+
 }
