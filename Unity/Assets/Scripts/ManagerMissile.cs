@@ -4,18 +4,10 @@ using System.Collections;
 public class ManagerMissile : MonoBehaviour {
 	
 	public float speed;
+	public bool facedRight;
 	// Use this for initialization
 	void Start () {
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
-
-	void Starting(bool facedRight){
-		GameObject player = GameObject.FindWithTag("Player") as GameObject;
-		Vector3 playerCenter = player.transform.position;
+		Vector3 playerCenter = transform.parent.transform.position;
 		if(facedRight){
 			rigidbody2D.velocity = new Vector2(speed,0);
 			Vector3 vect = transform.localScale;
@@ -26,6 +18,27 @@ public class ManagerMissile : MonoBehaviour {
 			rigidbody2D.velocity = new Vector2(-speed,0);
 		}
 		transform.position = playerCenter;
+		transform.parent = null;
+
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	}
+
+	void Starting(){
+		Vector3 playerCenter = transform.parent.transform.position;
+		if(facedRight){
+			rigidbody2D.velocity = new Vector2(speed,0);
+			Vector3 vect = transform.localScale;
+			vect.x *= -1;
+			transform.localScale = vect;
+		}
+		else{
+			rigidbody2D.velocity = new Vector2(-speed,0);
+		}
+		transform.position = playerCenter;
+		transform.parent = null;
 	}
 
 	void Kill(){
