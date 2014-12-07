@@ -7,7 +7,7 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 	private Quaternion correctPlayerRot;
 	private Vector3 correctPlayerScale;
 	private Rigidbody2D ridigbodyPlayer;
-	private Animator animacao;
+	//private Animator animacao;
 	//private AnimationInfo info;
 
 	void Update()
@@ -35,7 +35,7 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 			stream.SendNext(transform.rotation);
 			stream.SendNext(transform.localScale);
 			stream.SendNext(rigidbody2D.velocity);
-			stream.SendNext(animation);
+
 			
 		}
 		else
@@ -45,7 +45,7 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 			this.correctPlayerRot = (Quaternion)stream.ReceiveNext();
 			this.correctPlayerScale = (Vector3)stream.ReceiveNext();
 			this.ridigbodyPlayer = (Rigidbody2D)stream.ReceiveNext();
-			this.animacao = (Animator)stream.ReceiveNext();
+
 		}
 	}
 }
