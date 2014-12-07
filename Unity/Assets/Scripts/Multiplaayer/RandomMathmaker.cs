@@ -26,9 +26,8 @@ public class RandomMathmaker : MonoBehaviour {
 
 	void OnPhotonRandomJoinFailed()
 	{
-		RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 4 };
 		Debug.Log("Can't join random room!");
-		PhotonNetwork.CreateRoom(null, roomOptions,TypedLobby.Default);
+		PhotonNetwork.CreateRoom(null);
 	}
 
 

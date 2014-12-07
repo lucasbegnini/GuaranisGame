@@ -13,7 +13,7 @@ public class Life : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		CheckLife ();
+
 
 	}
 
@@ -30,12 +30,14 @@ public class Life : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other)
-	{
+	{	
+
 		if (other.collider.tag == "dardo") {
 			//Tira o life
 			Vida--;		
 			// Destroi o Dardo
 			Destroy(other.gameObject);
+			CheckLife ();
 		}
 	}
 }

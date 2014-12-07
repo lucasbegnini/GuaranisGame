@@ -19,7 +19,7 @@ public class ManagerMissile : MonoBehaviour {
 		}
 		transform.position = playerCenter;
 		transform.parent = null;
-
+		Invoke("kill",3f);
 	}
 	
 	// Update is called once per frame

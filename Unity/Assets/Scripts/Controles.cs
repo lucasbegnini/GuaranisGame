@@ -76,18 +76,33 @@ public	void Atirar(){
 				Invoke ("Atirar1", 0.4f);
 				}
 	}
-private void Atirar1(){
+	private void Atirar1(){
 		_isShoting = false;
+		instanciarBala();
+	}
+
+	void instanciarBala(){
 		_missile = PhotonNetwork.Instantiate(missile.name, Vector3.zero, Quaternion.identity, 0);
 		_missile.transform.parent = gameObject.transform;
-		_missile.GetComponent<ManagerMissile>().facedRight = _isfacedRight;
+		ManagerMissile manager = _missile.GetComponent<ManagerMissile>();
+		manager.enabled = true;
+		manager.facedRight = _isfacedRight;
+		BoxCollider2D colisor = _missile.GetComponent<BoxCollider2D>();
+		colisor.enabled = true;
+
 	}
+
 	void OnCollisionStay2D(Collision2D hit)
 	{
 		if(hit.collider.tag == "floor")
 		{
 			pulo = false;
 		}
+		if(hit.collider.tag == "dardo")
+		{
+			Destroy(gameObject);
+		}
 	}
+
 
 }
