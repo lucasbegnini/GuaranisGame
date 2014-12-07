@@ -5,6 +5,7 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 		
 	private Vector3 correctPlayerPos;
 	private Quaternion correctPlayerRot;
+	private Vector3 correctPlayerScale;
 
 	void Update()
 	{
@@ -12,6 +13,7 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 		{
 			transform.position = Vector3.Lerp(transform.position, this.correctPlayerPos, Time.deltaTime * 5);
 			transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPlayerRot, Time.deltaTime * 5);
+			transform.localScale = Vector3.Lerp(transform.localScale, this.correctPlayerScale, Time.deltaTime * 5);
 		}
 	}
 	
@@ -22,6 +24,7 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 			// We own this player: send the others our data
 			stream.SendNext(transform.position);
 			stream.SendNext(transform.rotation);
+			stream.SendNext(transform.localScale);
 			
 		}
 		else
@@ -29,6 +32,7 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 			// Network player, receive data
 			this.correctPlayerPos = (Vector3)stream.ReceiveNext();
 			this.correctPlayerRot = (Quaternion)stream.ReceiveNext();
+			this.correctPlayerScale = (Vector3)stream.ReceiveNext();
 		}
 	}
 }

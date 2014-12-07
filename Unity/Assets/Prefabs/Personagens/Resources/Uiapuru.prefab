@@ -31,10 +31,10 @@ GameObject:
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
   - 61: {fileID: 6100000}
-  - 114: {fileID: 11400006}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400012}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: Uiapuru
   m_TagString: Player
@@ -138,12 +138,16 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18a1d41ac648860438004c931674cb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 100004, guid: 8f3e459aba7b54f47a589d47e1364b70, type: 2}
+  limitMaxX: 0
+  limitMinX: -13.7299995
+  limitMaxY: 4.42000008
+  limitMinY: -15.5299997
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,7 +179,7 @@ MonoBehaviour:
   prefixBackup: -1
   observed: {fileID: 400002}
   synchronization: 3
-  onSerializeTransformOption: 3
+  onSerializeTransformOption: 4
   onSerializeRigidBodyOption: 2
   instantiationId: -1
 --- !u!114 &11400008
@@ -195,7 +199,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d76183b5e0e04714185ca424822ed2b0, type: 3}
   m_Name: 

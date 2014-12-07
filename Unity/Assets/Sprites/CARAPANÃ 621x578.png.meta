@@ -1,6 +1,12 @@
 fileFormatVersion: 2
 guid: fac63b0057a4dd549a4f7f156328d967
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: "CARAPAN\xC3 621x578_0"
+    21300002: "CARAPAN\xC3 621x578_1"
+    21300004: "CARAPAN\xC3 621x578_2"
+    21300006: "CARAPAN\xC3 621x578_3"
+    21300008: "CARAPAN\xC3 621x578_4"
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

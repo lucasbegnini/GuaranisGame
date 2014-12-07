@@ -11,8 +11,8 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
   - 212: {fileID: 21200000}
-  - 114: {fileID: 11400002}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: Bala
   m_TagString: dardo
@@ -76,10 +76,10 @@ MonoBehaviour:
   group: 0
   prefixBackup: -1
   observed: {fileID: 11400000}
-  synchronization: 3
-  onSerializeTransformOption: 0
+  synchronization: 2
+  onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
-  instantiationId: 0
+  instantiationId: -1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,9 +97,9 @@ MonoBehaviour:
   prefixBackup: -1
   observed: {fileID: 400000}
   synchronization: 3
-  onSerializeTransformOption: 0
+  onSerializeTransformOption: 4
   onSerializeRigidBodyOption: 2
-  instantiationId: 0
+  instantiationId: -1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
