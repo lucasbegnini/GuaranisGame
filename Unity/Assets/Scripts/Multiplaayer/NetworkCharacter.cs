@@ -15,9 +15,9 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 		if (!photonView.isMine)
 		{
 			transform.position = Vector3.Lerp(transform.position, this.correctPlayerPos, Time.deltaTime * 5);
-			transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPlayerRot, Time.deltaTime * 5);
+			transform.rotation = this.correctPlayerRot;
 			transform.localScale = Vector3.Lerp(transform.localScale, this.correctPlayerScale, Time.deltaTime * 5);
-			rigidbody2D.velocity = ridigbodyPlayer.velocity;
+			rigidbody2D.velocity = this.ridigbodyPlayer.velocity;
 
 			//animation = animacao.animation;
 
