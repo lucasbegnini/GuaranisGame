@@ -98,10 +98,6 @@ public	void Atirar(){
 		{
 			pulo = false;
 		}
-		if(hit.collider.tag == "dardo")
-		{
-			Destroy(gameObject);
-		}
 	}
 
 

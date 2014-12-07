@@ -19,7 +19,7 @@ public class ManagerMissile : MonoBehaviour {
 		}
 		transform.position = playerCenter;
 		transform.parent = null;
-		Invoke("kill",3f);
+		Invoke("Kill",3f);
 	}
 	
 	// Update is called once per frame
@@ -44,8 +44,5 @@ public class ManagerMissile : MonoBehaviour {
 	void Kill(){
 		Destroy(gameObject);
 	}
-
-	void OnTriggerEnter2D(Collider2D target){
-			Kill();
-	}
+	
 }

@@ -32,7 +32,7 @@ public class Life : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other)
 	{	
 
-		if (other.collider.tag == "dardo") {
+		if (other.collider.tag == "dardo" && other.transform.parent == transform){
 			//Tira o life
 			Vida--;		
 			// Destroi o Dardo
