@@ -1,6 +1,11 @@
 fileFormatVersion: 2
 guid: 9fd7cac9743502b4ab45859edb1d3cac
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: CORRENDO_0
+    21300002: CORRENDO_1
+    21300004: CORRENDO_2
+    21300006: CORRENDO_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

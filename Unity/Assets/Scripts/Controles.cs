@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class Controles : MonoBehaviour {
-	
+
+	static int deltaTime = 1;
 	public int velocidade;
 	public GameObject missile;
 	private GameObject _missile;
@@ -11,10 +12,12 @@ public class Controles : MonoBehaviour {
 	private AnimatorStateInfo info;
 	private AnimationInfo[] teste;
 	private bool pulo;
+	private bool _isShoting;
 	// Use this for initialization
 	void Start () {
 		anim =  GetComponent<Animator>();
 		pulo = false;
+		_isShoting = false;
 	}
 	
 	// Update is called once per frame
@@ -30,15 +33,14 @@ public class Controles : MonoBehaviour {
 
 		}
 		if(!Input.anyKey){
-
 			anim.SetTrigger("parado");
 		}
 	}
 
-	void GoLeft() {
+public	void GoLeft() {
 		Vector3 aux = transform.localScale;
 		Vector2 aux1 = rigidbody2D.velocity;
-		aux1.x = -velocidade*Vector2.right.x*Time.deltaTime;
+		aux1.x = -velocidade*Vector2.right.x;
 		rigidbody2D.velocity = aux1;
 		aux.x=1;
 		transform.localScale = aux;
@@ -47,31 +49,39 @@ public class Controles : MonoBehaviour {
 
 	}
 
-	void GoRight() {
+public	void GoRight() {
 		Vector3 aux = transform.localScale;
+		Vector2 aux1 = rigidbody2D.velocity;
+		aux1.x = velocidade*Vector2.right.x;
+		rigidbody2D.velocity = aux1;
 		aux.x=-1;
 		transform.localScale = aux;
 		_isfacedRight = true;
-		rigidbody2D.velocity = velocidade*Vector2.right*Time.deltaTime;
 		anim.SetTrigger("correndo");
 	}
 
-	void Jump() {
+	public void Jump() {
 		if(!pulo)
 		{
 			Vector2 aux = rigidbody2D.velocity;
-			aux.y = 10*Vector2.up.y;
+			aux.y = 18*Vector2.up.y;
 			rigidbody2D.velocity = aux;
 			pulo = true;
 		}
 	}
-	void Atirar(){
-		anim.SetTrigger("atirando");
-		_missile = GameObject.Instantiate(missile) as GameObject;
+public	void Atirar(){
+		if (!_isShoting) {
+			anim.SetTrigger("atirando");
+				_isShoting = true;
+				Invoke ("Atirar1", 0.4f);
+				}
+	}
+private void Atirar1(){
+		_isShoting = false;
+		_missile = PhotonNetwork.Instantiate(missile.name, Vector3.zero, Quaternion.identity, 0);
 		_missile.transform.parent = gameObject.transform;
 		_missile.GetComponent<ManagerMissile>().facedRight = _isfacedRight;
 	}
-
 	void OnCollisionStay2D(Collision2D hit)
 	{
 		if(hit.collider.tag == "floor")

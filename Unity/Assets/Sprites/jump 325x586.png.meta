@@ -1,6 +1,21 @@
 fileFormatVersion: 2
 guid: b29ea483d5b6d1345b59f3394a68b3ee
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: jump 325x586_0
+    21300002: jump 325x586_1
+    21300004: jump 325x586_2
+    21300006: jump 325x586_3
+    21300008: jump 325x586_4
+    21300010: jump 325x586_5
+    21300012: jump 325x586_6
+    21300014: jump 325x586_7
+    21300016: jump 325x586_8
+    21300018: jump 325x586_9
+    21300020: jump 325x586_10
+    21300022: jump 325x586_11
+    21300024: jump 325x586_12
+    21300026: jump 325x586_13
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
