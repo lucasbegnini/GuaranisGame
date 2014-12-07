@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: bd616b570ee38b240a8843c7e1e3a464
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: arvore3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

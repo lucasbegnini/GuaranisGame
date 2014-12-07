@@ -42,7 +42,8 @@ public class ManagerMissile : MonoBehaviour {
 	}
 
 	void Kill(){
-		Destroy(gameObject);
+		PhotonNetwork.Destroy (gameObject);
+		//Destroy(gameObject);
 	}
 	
 }

@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 0fb51dec83e50144bbdad6577244e0e9
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: galho2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
