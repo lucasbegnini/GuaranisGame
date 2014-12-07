@@ -1,10 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Controles.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ManagerMissile.cs">
     <Files>
+      <File FileName="Assets\Scripts\Controles.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Multiplaayer\NetworkCharacter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Multiplaayer\RandomMathmaker.cs" Line="41" Column="74" />
-      <File FileName="Assets\Scripts\Controles.cs" Line="81" Column="52" />
+      <File FileName="Assets\Scripts\Multiplaayer\RandomMathmaker.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Controles.cs" Line="87" Column="34" />
+      <File FileName="Assets\Scripts\ManagerMissile.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
