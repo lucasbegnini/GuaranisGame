@@ -8,7 +8,7 @@ public class Controles : MonoBehaviour {
 	public GameObject missile;
 	private GameObject _missile;
 	private Animator anim;
-	public bool _isfacedRight;
+	private bool _isfacedRight;
 	private AnimatorStateInfo info;
 	private AnimationInfo[] teste;
 	private bool pulo;
@@ -45,9 +45,7 @@ public	void GoLeft() {
 		rigidbody2D.velocity = aux1;
 		aux.x=1;
 		transform.localScale = aux;
-
 		_isfacedRight = false;
-		BroadcastMessage ("TranformPosicao");
 		anim.SetTrigger("correndo");
 
 	}
@@ -61,7 +59,6 @@ public	void GoRight() {
 		aux.x=-1;
 		transform.localScale = aux;
 		_isfacedRight = true;
-		BroadcastMessage ("TranformPosicao");
 		anim.SetTrigger("correndo");
 	}
 
