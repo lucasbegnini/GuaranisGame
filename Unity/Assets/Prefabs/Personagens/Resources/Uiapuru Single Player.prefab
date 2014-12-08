@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07fc42c48c164c8479ff4b1e9558d1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Folha: {fileID: 100000, guid: f3a605007e2cf0941ab359fce3a1d5a2, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

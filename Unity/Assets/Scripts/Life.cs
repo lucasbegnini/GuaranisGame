@@ -4,9 +4,27 @@ using System.Collections;
 public class Life : MonoBehaviour {
 
 	private int Vida;
+	public GameObject Folha;
+	private GameObject[] _Folha;
+	private Vector3 posicaoFolha;
+
 	// Use this for initialization
 	void Start () {
 		Vida = 3; 
+		_Folha = new GameObject[Vida];
+		float distanciaX = 0.8f;
+		float distanciaY = 1.5f;
+		for(int i = 0; i < Vida; i++)
+		{
+
+			float posicaoFolhaX = GameObject.FindGameObjectWithTag ("HUD").transform.position.x - distanciaX;
+			float posicaoFolhaY = GameObject.FindGameObjectWithTag ("HUD").transform.position.y - distanciaY;
+		posicaoFolha = new Vector3 (posicaoFolhaX, posicaoFolhaY,0);
+
+		_Folha[i] = Instantiate (Folha, posicaoFolha,Quaternion.identity) as GameObject;
+		_Folha[i].transform.parent = GameObject.FindGameObjectWithTag ("MainCamera").transform;
+			distanciaX = distanciaX - 0.7f;
+		}
 	
 	}
 	
@@ -27,6 +45,7 @@ public class Life : MonoBehaviour {
 	void Die()
 	{
 		Destroy (this.gameObject);
+		Application.LoadLevel (Application.loadedLevel);
 	}
 
 	void OnCollisionEnter2D(Collision2D other)
@@ -36,9 +55,21 @@ public class Life : MonoBehaviour {
 			//Tira o life
 			Vida--;		
 			// Destroi o Dardo
-			PhotonNetwork.Destroy(gameObject);
+			//PhotonNetwork.Destroy(gameObject);
 			Destroy(other.gameObject);
 			CheckLife ();
+		}
+
+	}
+
+	void OnTriggerEnter2D(Collider2D c)
+	{
+		if (c.gameObject.CompareTag("carapana")) {
+
+			Vida--;
+			Destroy(_Folha[Vida]);
+			CheckLife();
+
 		}
 	}
 }

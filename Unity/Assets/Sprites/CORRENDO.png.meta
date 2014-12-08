@@ -50,40 +50,40 @@ TextureImporter:
     - name: CORRENDO_0
       rect:
         serializedVersion: 2
-        x: 512
+        x: 160
         y: 0
         width: 305
-        height: 607
+        height: 602
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CORRENDO_1
       rect:
         serializedVersion: 2
-        x: 831
+        x: 492
         y: 0
-        width: 323
-        height: 607
+        width: 309
+        height: 606
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CORRENDO_2
       rect:
         serializedVersion: 2
-        x: 1172
-        y: 2
-        width: 341
-        height: 605
+        x: 828
+        y: 0
+        width: 324
+        height: 602
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CORRENDO_3
       rect:
         serializedVersion: 2
-        x: 1535
+        x: 1179
         y: 0
-        width: 387
-        height: 607
+        width: 340
+        height: 599
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
