@@ -36,6 +36,7 @@ public class Life : MonoBehaviour {
 			//Tira o life
 			Vida--;		
 			// Destroi o Dardo
+			PhotonNetwork.Destroy(gameObject);
 			Destroy(other.gameObject);
 			CheckLife ();
 		}

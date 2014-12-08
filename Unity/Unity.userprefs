@@ -1,24 +1,12 @@
 ﻿<Properties>
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ManagerMissile.cs">
-    <Files>
-      <File FileName="Assets\Scripts\Controles.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Multiplaayer\NetworkCharacter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Multiplaayer\RandomMathmaker.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Controles.cs" Line="87" Column="34" />
-      <File FileName="Assets\Scripts\ManagerMissile.cs" Line="1" Column="1" />
-=======
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SeguidorCamera.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\GuaranisGame\GuaranisGame\Unity\Assets\Scripts\ManagerMissile.cs">
     <Files>
-      <File FileName="Assets\Scripts\Multiplaayer\NetworkManager.cs" Line="82" Column="1" />
-      <File FileName="Assets\Scripts\Multiplaayer\NetworkCharacter.cs" Line="16" Column="24" />
-      <File FileName="Assets\Scripts\ManagerMissile.cs" Line="52" Column="1" />
-      <File FileName="Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs" Line="335" Column="1" />
-      <File FileName="Assets\Scripts\SeguidorCamera.cs" Line="36" Column="29" />
-      <File FileName="Assets\Scripts\CameraFollower.cs" Line="64" Column="1" />
->>>>>>> origin/master
+      <File FileName="..\..\..\GuaranisGame\GuaranisGame\Unity\Assets\Scripts\Controles.cs" Line="87" Column="70" />
+      <File FileName="..\..\..\GuaranisGame\GuaranisGame\Unity\Assets\Scripts\ManagerMissile.cs" Line="10" Column="1" />
+      <File FileName="..\..\..\GuaranisGame\GuaranisGame\Unity\Assets\Scripts\Life.cs" Line="35" Column="75" />
+      <File FileName="..\..\..\GuaranisGame\GuaranisGame\Unity\Assets\Scripts\Multiplaayer\RandomMathmaker.cs" Line="67" Column="1" />
+      <File FileName="..\..\..\GuaranisGame\GuaranisGame\Unity\Assets\Scripts\Multiplaayer\NetworkCharacter.cs" Line="52" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

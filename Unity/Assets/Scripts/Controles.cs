@@ -84,6 +84,7 @@ public	void Atirar(){
 	void instanciarBala(){
 		_missile = PhotonNetwork.Instantiate(missile.name, Vector3.zero, Quaternion.identity, 0);
 		_missile.transform.parent = gameObject.transform;
+	//	_missile.GetComponent<ManagerMissile> ().facedRight = _isfacedRight;
 		ManagerMissile manager = _missile.GetComponent<ManagerMissile>();
 		manager.enabled = true;
 		manager.facedRight = _isfacedRight;
