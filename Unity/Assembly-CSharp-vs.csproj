@@ -99,6 +99,7 @@
      <Compile Include="Assets\Scripts\Controles.cs" />
      <Compile Include="Assets\Scripts\Life.cs" />
      <Compile Include="Assets\Scripts\ManagerMissile.cs" />
+     <Compile Include="Assets\Scripts\Multiplaayer\NetworkBala.cs" />
      <Compile Include="Assets\Scripts\Multiplaayer\NetworkCharacter.cs" />
      <Compile Include="Assets\Scripts\Multiplaayer\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\Multiplaayer\RandomMathmaker.cs" />
