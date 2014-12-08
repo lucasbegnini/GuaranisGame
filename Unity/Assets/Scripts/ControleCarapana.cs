@@ -11,7 +11,7 @@ public class ControleCarapana : MonoBehaviour {
 	void Start () {
 		_minTela = new Vector2(-11f,-12f);
 		_maxTela = new Vector2(11f,1f);
-		speed = 2f;
+		speed = 3f;
 		Invoke("NovaPosicao",0);
 	}
 	
@@ -27,7 +27,7 @@ public class ControleCarapana : MonoBehaviour {
 		Invoke("NovaPosicao",Random.Range(1f,speed));
 	}
 
-	void OnCollisionEnter2D(Collision2D c){
+	void OnTriggerEnter2D(Collider2D c){
 		Debug.Log (c.gameObject.name);
 		if(c.gameObject.CompareTag("dardo")){
 			Kill();
