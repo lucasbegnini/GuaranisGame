@@ -38,6 +38,7 @@ public class Controles : MonoBehaviour {
 	}
 
 public	void GoLeft() {
+		GameObject.FindGameObjectWithTag ("left button").GetComponent<Animator> ().SetTrigger ("Pressionado");
 		Vector3 aux = transform.localScale;
 		Vector2 aux1 = rigidbody2D.velocity;
 		aux1.x = -velocidade*Vector2.right.x;
@@ -50,6 +51,7 @@ public	void GoLeft() {
 	}
 
 public	void GoRight() {
+		GameObject.FindGameObjectWithTag ("right button").GetComponent<Animator> ().SetTrigger ("Pressionado");
 		Vector3 aux = transform.localScale;
 		Vector2 aux1 = rigidbody2D.velocity;
 		aux1.x = velocidade*Vector2.right.x;
@@ -61,6 +63,7 @@ public	void GoRight() {
 	}
 
 	public void Jump() {
+		GameObject.FindGameObjectWithTag ("jump button").GetComponent<Animator> ().SetTrigger ("Pressionado");
 		if(!pulo)
 		{
 			Vector2 aux = rigidbody2D.velocity;
@@ -70,6 +73,7 @@ public	void GoRight() {
 		}
 	}
 public	void Atirar(){
+		GameObject.FindGameObjectWithTag ("fire button").GetComponent<Animator> ().SetTrigger ("Pressionado");
 		if (!_isShoting) {
 			anim.SetTrigger("atirando");
 				_isShoting = true;
