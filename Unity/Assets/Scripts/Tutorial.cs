@@ -9,11 +9,13 @@ public class Tutorial : MonoBehaviour {
 	private GameObject _carapana;
 	public GameObject personagem;
 	private GameObject _personagem;
+	private Vector3 posicao;
 	
 	// Use this for initialization
 	void Start () {
 		_minTela = new Vector2(-11,-12);
 		_maxTela = new Vector2(11,1);
+		posicao = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, 0.0f);
 		CriaPersonagem();
 		CriaCarapana();
 	}
@@ -25,14 +27,9 @@ public class Tutorial : MonoBehaviour {
 
 	void CriaPersonagem()
 	{
-		_personagem = GameObject.Instantiate(personagem)as GameObject;
-		Controles controle = _personagem.GetComponent<Controles>();
-		controle.enabled = true;
-		SeguidorCamera camera = _personagem.GetComponent<SeguidorCamera>();
-		camera.enabled = true;
+		_personagem = GameObject.Instantiate(personagem, posicao, Quaternion.identity)as GameObject;
 
-		VirtualJoystick joy = _personagem.GetComponent<VirtualJoystick>();
-		joy.enabled = true;
+
 
 	}
 	public void CriaCarapana(){
@@ -41,5 +38,6 @@ public class Tutorial : MonoBehaviour {
 		float aleatorioY = Random.Range(_minTela.y,_maxTela.y);
 		Vector2 posicao = new Vector2(aleatorioX,aleatorioY);
 		_carapana.transform.position = posicao;
+		_carapana.transform.parent = transform; 
 	}
 }

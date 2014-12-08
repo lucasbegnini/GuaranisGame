@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Controles : MonoBehaviour {
+public class Controles1 : MonoBehaviour {
 
 	static int deltaTime = 1;
 	public int velocidade;
@@ -86,14 +86,13 @@ public	void Atirar(){
 	}
 
 	void instanciarBala(){
-		_missile = PhotonNetwork.Instantiate(missile.name, Vector3.zero, Quaternion.identity, 0);
+		_missile = GameObject.Instantiate(missile) as GameObject;
 		_missile.transform.parent = gameObject.transform;
 	//	_missile.GetComponent<ManagerMissile> ().facedRight = _isfacedRight;
 		ManagerMissile manager = _missile.GetComponent<ManagerMissile>();
 		manager.enabled = true;
 		manager.facedRight = _isfacedRight;
-		BoxCollider2D colisor = _missile.GetComponent<BoxCollider2D>();
-		colisor.enabled = true;
+
 
 	}
 

@@ -28,12 +28,14 @@ public class ControleCarapana : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D c){
+		Debug.Log (c.gameObject.name);
 		if(c.gameObject.CompareTag("dardo")){
 			Kill();
 		}
 	}
 
 	void Kill(){
+		transform.parent.SendMessage("CriaCarapana");
 		Destroy(gameObject);
 	}
 }

@@ -41,9 +41,16 @@ public class ManagerMissile : MonoBehaviour {
 		transform.parent = null;
 	}
 
+	void OnCollisionEnter2D(Collision2D c){
+		if(!c.gameObject.CompareTag("Player"))
+			Kill();
+	}
+
 	void Kill(){
+		if(PhotonNetwork.connected)
 		PhotonNetwork.Destroy (gameObject);
-		//Destroy(gameObject);
+		else
+		Destroy(gameObject);
 	}
 	
 }
