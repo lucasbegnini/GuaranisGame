@@ -1,21 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &100000
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400000}
-  - 58: {fileID: 5800000}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,8 +14,8 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
-  - 61: {fileID: 6100000}
   - 114: {fileID: 11400008}
+  - 60: {fileID: 6000000}
   m_Layer: 0
   m_Name: Uiapuru Single Player
   m_TagString: Player
@@ -39,18 +23,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &400000
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400002}
-  m_RootOrder: 0
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -60,8 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .800000012, y: -7.80000019, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 400000}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5000000
@@ -79,19 +50,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!58 &5800000
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Radius: .389999986
-  m_Center: {x: -.0199999996, y: -.680000007}
---- !u!61 &6100000
-BoxCollider2D:
+--- !u!60 &6000000
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -99,8 +59,94 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .769999981, y: 1.11000001}
-  m_Center: {x: 0, y: 0}
+  m_Poly:
+    m_Paths:
+    - - {x: -.0709913224, y: -.996301889}
+      - {x: -.0116582112, y: -1.00124633}
+      - {x: .126785725, y: -.892468929}
+      - {x: .176229984, y: -.941913188}
+      - {x: .245451942, y: -1.03585732}
+      - {x: .2751185, y: -1.06057942}
+      - {x: .369062603, y: -1.06057942}
+      - {x: .423451275, y: -1.04574609}
+      - {x: .418506861, y: -.956746459}
+      - {x: .383895874, y: -.838080227}
+      - {x: .403673589, y: -.76391381}
+      - {x: .388840318, y: -.734247267}
+      - {x: .388840318, y: -.610636652}
+      - {x: .398729146, y: -.699636281}
+      - {x: .438284576, y: -.778747141}
+      - {x: .552006364, y: -.793580413}
+      - {x: .561895192, y: -.783691525}
+      - {x: .581672907, y: -.749080539}
+      - {x: .581672907, y: -.640303195}
+      - {x: .576728523, y: -.580970049}
+      - {x: .54706192, y: -.521636963}
+      - {x: .492673248, y: -.417804003}
+      - {x: .502562106, y: -.304082215}
+      - {x: .512450933, y: -.234860241}
+      - {x: .467951119, y: -.185415983}
+      - {x: .507506549, y: -.145860568}
+      - {x: .537173092, y: -.10630516}
+      - {x: .556950808, y: -.0716941804}
+      - {x: .566839635, y: .0222499184}
+      - {x: .54706192, y: .0716941804}
+      - {x: .487728834, y: .121138439}
+      - {x: .492673248, y: .185415983}
+      - {x: .502562106, y: .378248602}
+      - {x: .497617692, y: .566136777}
+      - {x: .477839977, y: .615581036}
+      - {x: .438284576, y: .679858565}
+      - {x: .398729146, y: .719413996}
+      - {x: .349284887, y: .754024982}
+      - {x: .285007358, y: .773802698}
+      - {x: .0476749018, y: .803469241}
+      - {x: -.00671378477, y: .788635969}
+      - {x: .0180083457, y: .8281914}
+      - {x: .171285555, y: .956746459}
+      - {x: .156452283, y: 1.03091288}
+      - {x: .136674568, y: 1.03585732}
+      - {x: .0872303098, y: 1.03585732}
+      - {x: .0427304767, y: 1.01607955}
+      - {x: .0130639197, y: .991357446}
+      - {x: -.0611024722, y: .912246644}
+      - {x: -.0907690302, y: .847969055}
+      - {x: -.135268867, y: .843024671}
+      - {x: -.159990996, y: .823246956}
+      - {x: -.174824268, y: .744136155}
+      - {x: -.214379683, y: .734247267}
+      - {x: -.318212628, y: .699636281}
+      - {x: -.407212287, y: .585914493}
+      - {x: -.422045588, y: .536470234}
+      - {x: -.431934446, y: .437581718}
+      - {x: -.431934446, y: .170582697}
+      - {x: -.426990002, y: -.0568609014}
+      - {x: -.50115639, y: -.101360738}
+      - {x: -.506100833, y: -.150804996}
+      - {x: -.50115639, y: -.205193684}
+      - {x: -.550600648, y: -.234860241}
+      - {x: -.580267191, y: -.2843045}
+      - {x: -.50115639, y: -.368359745}
+      - {x: -.511045277, y: -.402970731}
+      - {x: -.486323118, y: -.437581718}
+      - {x: -.481378704, y: -.511748075}
+      - {x: -.530822933, y: -.590858936}
+      - {x: -.580267191, y: -.610636652}
+      - {x: -.580267191, y: -.620525479}
+      - {x: -.570378363, y: -.655136466}
+      - {x: -.580267191, y: -.689747453}
+      - {x: -.580267191, y: -.739191711}
+      - {x: -.481378704, y: -.798524797}
+      - {x: -.412156731, y: -.729302883}
+      - {x: -.37260133, y: -.684803009}
+      - {x: -.412156731, y: -.758969426}
+      - {x: -.387434602, y: -.941913188}
+      - {x: -.377545744, y: -1.0111351}
+      - {x: -.352823615, y: -1.06057942}
+      - {x: -.253935099, y: -1.06057942}
+      - {x: -.234157383, y: -1.02102399}
+      - {x: -.219324112, y: -.877635658}
+      - {x: -.14515771, y: -.956746459}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -136,16 +182,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18a1d41ac648860438004c931674cb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 100004, guid: 8f3e459aba7b54f47a589d47e1364b70, type: 2}
-  limitMaxX: 0
-  limitMinX: -13.7299995
-  limitMaxY: 4.42000008
-  limitMinY: -15.5299997
+  limitMaxX: 12.6289902
+  limitMinX: -7.82038307
+  limitMaxY: -.266745687
+  limitMinY: -12.3999996
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07fc42c48c164c8479ff4b1e9558d1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Folha: {fileID: 100000, guid: f3a605007e2cf0941ab359fce3a1d5a2, type: 2}
+  Folha: {fileID: 100000, guid: c9947ed696a4ae24d8a0d41465b676f4, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

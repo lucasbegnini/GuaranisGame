@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidade: 8
   missile: {fileID: 100000, guid: fee3ef9bca71b0744aed8bd2980ea79c, type: 2}
+  _isfacedRight: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,11 +144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a1d41ac648860438004c931674cb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 100004, guid: 8f3e459aba7b54f47a589d47e1364b70, type: 2}
-  limitMaxX: 0
-  limitMinX: -13.7299995
-  limitMaxY: 4.42000008
-  limitMinY: -15.5299997
+  limitMaxX: 12.6289902
+  limitMinX: -7.82038307
+  limitMaxY: -.266745687
+  limitMinY: -12.3999996
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07fc42c48c164c8479ff4b1e9558d1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Folha: {fileID: 100000, guid: c9947ed696a4ae24d8a0d41465b676f4, type: 2}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1

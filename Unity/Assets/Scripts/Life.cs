@@ -7,6 +7,7 @@ public class Life : MonoBehaviour {
 	public GameObject Folha;
 	private GameObject[] _Folha;
 	private Vector3 posicaoFolha;
+	private Collider2D ColisorPersonagem;
 
 	// Use this for initialization
 	void Start () {
@@ -60,16 +61,40 @@ public class Life : MonoBehaviour {
 			CheckLife ();
 		}
 
+
 	}
 
 	void OnTriggerEnter2D(Collider2D c)
 	{
-		if (c.gameObject.CompareTag("carapana")) {
 
+		ColisorPersonagem = c;
+		if (ColisorPersonagem.gameObject.CompareTag("carapana")) {
+		
 			Vida--;
 			Destroy(_Folha[Vida]);
 			CheckLife();
+			Ghost();
 
 		}
+	}
+
+	void Ghost()
+	{
+		Debug.Log ("Virou Fantasma");
+		Physics2D.IgnoreCollision (ColisorPersonagem, collider2D, true);
+	
+
+		//Invoke ("Normal", 1f);
+	}
+
+	void Normal()
+	{
+		Debug.Log ("Voltou ao normal");
+		Physics2D.IgnoreCollision (ColisorPersonagem, collider2D, false);
+	}
+
+	void MovimentoDano()
+	{
+		transform.position = new Vector3 (transform.position.x - 2, transform.position.y - 2, transform.position.z);
 	}
 }

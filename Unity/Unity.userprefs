@@ -1,12 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\GuaranisGame\GuaranisGame\Unity\Assets\Scripts\ManagerMissile.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\Jogos\Guarani\Unity\Assets\Scripts\Telas\PlayGame.cs">
     <Files>
-      <File FileName="..\..\..\GuaranisGame\GuaranisGame\Unity\Assets\Scripts\Controles.cs" Line="87" Column="70" />
-      <File FileName="..\..\..\GuaranisGame\GuaranisGame\Unity\Assets\Scripts\ManagerMissile.cs" Line="10" Column="1" />
-      <File FileName="..\..\..\GuaranisGame\GuaranisGame\Unity\Assets\Scripts\Life.cs" Line="35" Column="75" />
-      <File FileName="..\..\..\GuaranisGame\GuaranisGame\Unity\Assets\Scripts\Multiplaayer\RandomMathmaker.cs" Line="67" Column="1" />
-      <File FileName="..\..\..\GuaranisGame\GuaranisGame\Unity\Assets\Scripts\Multiplaayer\NetworkCharacter.cs" Line="52" Column="1" />
+      <File FileName="..\..\..\Jogos\Guarani\Unity\Assets\Scripts\Telas\PlayGame.cs" Line="4" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

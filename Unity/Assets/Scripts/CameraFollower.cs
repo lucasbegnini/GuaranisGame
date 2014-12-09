@@ -28,7 +28,7 @@ public class CameraFollower: MonoBehaviour {
 		if(canShake)
 			DoTheShake ();
 		if (target.position.x > limitMaxX-halfWidthScreen) 
-			transform.position = new Vector3 (limitMaxX-halfWidthScreen+shakeAdjustX, transform.position.y, transform.position.z);
+			Camera.main.transform.position = new Vector3 (limitMaxX-halfWidthScreen+shakeAdjustX, transform.position.y, transform.position.z);
 		else if(target.position.x < limitMinX+halfWidthScreen)
 			transform.position = new Vector3 (limitMinX+halfWidthScreen+shakeAdjustX, transform.position.y, transform.position.z);
 		else
