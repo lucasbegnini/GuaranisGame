@@ -5,6 +5,7 @@ public class ManagerMissile : MonoBehaviour {
 	
 	public float speed;
 	public bool facedRight;
+	public Transform Pai;
 	// Use this for initialization
 	void Start () {
 		Vector3 playerCenter = transform.parent.transform.position;
@@ -18,12 +19,19 @@ public class ManagerMissile : MonoBehaviour {
 			rigidbody2D.velocity = new Vector2(-speed,0);
 		}
 		transform.position = playerCenter;
+		Pai = transform.parent;
 		transform.parent = null;
 		Invoke("Kill",3f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+	}
+
+	public int  Retornaid()
+	{
+		return PhotonNetwork.player.ID;
+		
 	}
 
 	void Starting(){

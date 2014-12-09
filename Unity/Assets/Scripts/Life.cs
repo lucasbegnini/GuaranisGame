@@ -89,7 +89,7 @@ public class Life : MonoBehaviour {
 		if (PhotonNetwork.connected)
 		{
 
-			if(ColisorPersonagem.gameObject.CompareTag("dardo") && (ColisorPersonagem.gameObject.GetComponent<Life>().Retornaid() != PlayerID) )
+			if(ColisorPersonagem.gameObject.CompareTag("dardo") && (c.gameObject.GetComponent<ManagerMissile>().Pai.gameObject.GetComponent<Life>().Retornaid()!= Retornaid())  )
 			{
 				Vida--;		
 				// Destroi o Dardo
