@@ -49,32 +49,45 @@ public class Life : MonoBehaviour {
 		Application.LoadLevel (Application.loadedLevel);
 	}
 
-	void OnCollisionEnter2D(Collision2D other)
-	{	
-
-		if (other.collider.tag == "dardo" && other.transform.parent == transform){
-			//Tira o life
-			Vida--;		
-			// Destroi o Dardo
-			//PhotonNetwork.Destroy(gameObject);
-			Destroy(other.gameObject);
-			CheckLife ();
-		}
-
-
-	}
+//	void OnCollisionEnter2D(Collision2D other)
+//	{	
+//
+//		if (other.collider.tag == "dardo" && other.transform.parent == transform){
+//			//Tira o life
+//			Vida--;		
+//			// Destroi o Dardo
+//			//PhotonNetwork.Destroy(gameObject);
+//			Destroy(other.gameObject);
+//			CheckLife ();
+//		}
+//
+//
+//	}
 
 	void OnTriggerEnter2D(Collider2D c)
 	{
 
 		ColisorPersonagem = c;
+		if(!PhotonNetwork.connected)
+		{
 		if (ColisorPersonagem.gameObject.CompareTag("carapana")) {
 		
 			Vida--;
 			Destroy(_Folha[Vida]);
 			CheckLife();
 			Ghost();
+			}
+		}
 
+		if (PhotonNetwork.connected)
+		{
+			if(ColisorPersonagem.gameObject.CompareTag("dardo"))
+			{
+				Vida--;		
+				// Destroi o Dardo
+				PhotonNetwork.Destroy(ColisorPersonagem);
+				CheckLife();
+			}
 		}
 	}
 
