@@ -8,9 +8,11 @@ public class Life : MonoBehaviour {
 	private GameObject[] _Folha;
 	private Vector3 posicaoFolha;
 	private Collider2D ColisorPersonagem;
+	private int PlayerID;
 
 	// Use this for initialization
 	void Start () {
+		PlayerID = PhotonNetwork.player.ID;
 		Vida = 3; 
 		_Folha = new GameObject[Vida];
 		float distanciaX = 0.8f;
@@ -27,6 +29,11 @@ public class Life : MonoBehaviour {
 			distanciaX = distanciaX - 0.7f;
 		}
 	
+	}
+	public int  Retornaid()
+	{
+		return PhotonNetwork.player.ID;
+
 	}
 	
 	// Update is called once per frame
@@ -81,11 +88,13 @@ public class Life : MonoBehaviour {
 
 		if (PhotonNetwork.connected)
 		{
-			if(ColisorPersonagem.gameObject.CompareTag("dardo"))
+
+			if(ColisorPersonagem.gameObject.CompareTag("dardo") && (ColisorPersonagem.gameObject.GetComponent<Life>().Retornaid() != PlayerID) )
 			{
 				Vida--;		
 				// Destroi o Dardo
-				PhotonNetwork.Destroy(ColisorPersonagem);
+				Destroy(_Folha[Vida]);
+				PhotonNetwork.Destroy(ColisorPersonagem.gameObject);
 				CheckLife();
 			}
 		}
