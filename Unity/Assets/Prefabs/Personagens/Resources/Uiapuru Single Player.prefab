@@ -190,7 +190,7 @@ MonoBehaviour:
   limitMaxX: 12.6289902
   limitMinX: -7.82038307
   limitMaxY: -.266745687
-  limitMinY: -12.3999996
+  limitMinY: -12
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

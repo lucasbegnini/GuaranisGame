@@ -23,10 +23,13 @@ public class SeguidorCamera : MonoBehaviour {
 
 	void LimitesCamera()
 	{
-		if ((transform.position.x < limitMaxX) && (transform.position.x > limitMinX) && (transform.position.y < limitMaxY) && (transform.position.y > limitMinY)) 
+		if ((transform.position.x < limitMaxX) && (transform.position.x > limitMinX)) 
 		{
-						Camera.main.transform.position = new Vector3 (transform.position.x, transform.position.y, Camera.main.transform.position.z);
+			Camera.main.transform.position = new Vector3 (transform.position.x,Camera.main.transform.position.y, Camera.main.transform.position.z);
 		}
-
+		if ((transform.position.y < limitMaxY) && (transform.position.y > limitMinY))
+		{
+			Camera.main.transform.position = new Vector3 (Camera.main.transform.position.x, transform.position.y, Camera.main.transform.position.z);
+		}
 	}
 }
