@@ -45,8 +45,8 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: .800000012
-  m_FixedAngle: 0
-  m_IsKinematic: 0
+  m_FixedAngle: 1
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -74,6 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   facedRight: 0
+  Pai: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,7 +123,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 396cb93e7371b544e84ef169c55552b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d83a611d7ec8af4e95578006e533fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11400008
@@ -163,7 +164,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 2029587111
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1662c0140838c13468f3e30848388c91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

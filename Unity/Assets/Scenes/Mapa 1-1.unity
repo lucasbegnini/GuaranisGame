@@ -451,7 +451,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &459379954
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +532,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &509008786
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,7 +992,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 2029587111
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d1159f826c482544a8708031e59cb947, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1005,7 +1003,7 @@ Transform:
   m_PrefabInternal: {fileID: 2004267270}
   m_GameObject: {fileID: 1210322197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .276354313, y: -5.48158979, z: 0}
+  m_LocalPosition: {x: .276354313, y: -5.04461241, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1246,7 +1244,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1319579633
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,7 +2122,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1992174740
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,7 +2185,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0a228f23633f7fd4e9ca188c5d5f3d95, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.48158979
+      value: -5.04461241
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0a228f23633f7fd4e9ca188c5d5f3d95, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2214,6 +2210,10 @@ Prefab:
     - target: {fileID: 400000, guid: 0a228f23633f7fd4e9ca188c5d5f3d95, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 0a228f23633f7fd4e9ca188c5d5f3d95, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 2029587111
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a228f23633f7fd4e9ca188c5d5f3d95, type: 2}
