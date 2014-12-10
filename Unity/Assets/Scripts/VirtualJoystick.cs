@@ -24,15 +24,14 @@ public class VirtualJoystick : MonoBehaviour {
 			if (controlType == 1) {
 				if(Physics.Raycast(touchPos,Vector3.forward, out hit,whatIsButton)){
 					
-					if(hit.collider.tag == "left button"){
+					if(hit.collider.tag == "left button")
 						characterController.GoLeft();
-					}else
-					if(hit.collider.tag == "right button"){
-						characterController.GoRight();
-					}else{ 
-						characterController.Stop();
-					}
-					if(hit.collider.tag == "fire button")
+					else
+						if(hit.collider.tag == "right button")
+							characterController.GoRight();
+					else 
+
+						if(hit.collider.tag == "fire button")
 							characterController.Atirar();
 					if(hit.collider.tag == "jump button"){
 						characterController.Jump();

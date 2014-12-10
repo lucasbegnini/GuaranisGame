@@ -9,11 +9,9 @@ public class Life : MonoBehaviour {
 	private Vector3 posicaoFolha;
 	private Collider2D ColisorPersonagem;
 	private int PlayerID;
-	private Animator anim;
 
 	// Use this for initialization
 	void Start () {
-		anim = GetComponent<Animator> ();
 		PlayerID = PhotonNetwork.player.ID;
 		Vida = 3; 
 		_Folha = new GameObject[Vida];
@@ -85,7 +83,6 @@ public class Life : MonoBehaviour {
 			Destroy(_Folha[Vida]);
 			CheckLife();
 			Ghost();
-			AnimacaoMorrendo();
 			}
 		}
 
@@ -112,18 +109,10 @@ public class Life : MonoBehaviour {
 		//Invoke ("Normal", 1f);
 	}
 
-	void AnimacaoMorrendo()
-	{
-		anim.SetBool ("morrendo", true);
-		Invoke ("Normal", 0.8f);
-	}
-
 	void Normal()
 	{
 		Debug.Log ("Voltou ao normal");
-		anim.SetBool ("morrendo", false);
 		Physics2D.IgnoreCollision (ColisorPersonagem, collider2D, false);
-
 	}
 
 	void MovimentoDano()

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class NetworkCharacter : Photon.MonoBehaviour {
@@ -7,12 +7,8 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 	private Quaternion correctPlayerRot;
 	private Vector3 correctPlayerScale;
 	private Rigidbody2D ridigbodyPlayer;
-	Animator animacao;
+	//private Animator animacao;
 	//private AnimationInfo info;
-	void Start()
-	{
-		animacao = GetComponent<Animator> ();
-	}
 
 	void Update()
 	{
@@ -38,9 +34,6 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 			stream.SendNext(transform.position);
 			stream.SendNext(transform.rotation);
 			stream.SendNext(transform.localScale);
-			stream.SendNext(animacao.GetBool("correndo"));
-			stream.SendNext(animacao.GetBool("atirando"));
-			stream.SendNext(animacao.GetBool("morrendo"));
 //			stream.SendNext(rigidbody2D.velocity);
 
 			
@@ -51,10 +44,7 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 			this.correctPlayerPos = (Vector3)stream.ReceiveNext();
 			this.correctPlayerRot = (Quaternion)stream.ReceiveNext();
 			this.correctPlayerScale = (Vector3)stream.ReceiveNext();
-			animacao.SetBool("correndo",(bool)stream.ReceiveNext());
-			animacao.SetBool("atirando",(bool)stream.ReceiveNext());
-			animacao.SetBool("morrendo",(bool)stream.ReceiveNext());
-			//			this.ridigbodyPlayer = (Rigidbody2D)stream.ReceiveNext();
+//			this.ridigbodyPlayer = (Rigidbody2D)stream.ReceiveNext();
 
 		}
 	}

@@ -19,7 +19,7 @@ public class ManagerMissile : MonoBehaviour {
 			rigidbody2D.velocity = new Vector2(-speed,0);
 		}
 		transform.position = playerCenter;
-		Pai = transform.parent.gameObject.GetComponent<Life>().Retornaid();
+		Pai = transform.parent.GetComponent<Life>().Retornaid();
 		transform.parent = null;
 		Invoke("Kill",3f);
 	}
