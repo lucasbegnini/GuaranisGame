@@ -11,7 +11,7 @@ public class NetworkBala : Photon.MonoBehaviour {
 		if (!photonView.isMine)
 		{
 			transform.position = Vector3.Lerp(transform.position, this.correctPlayerPos, Time.deltaTime * 5);
-			transform.rotation = this.correctPlayerRot;
+			//transform.rotation = this.correctPlayerRot;
 			transform.localScale = this.correctPlayerScale;
 			//			rigidbody2D.velocity = this.ridigbodyPlayer.velocity;
 			
@@ -28,7 +28,7 @@ public class NetworkBala : Photon.MonoBehaviour {
 		{
 			// We own this player: send the others our data
 			stream.SendNext(transform.position);
-			stream.SendNext(transform.rotation);
+			//stream.SendNext(transform.rotation);
 			stream.SendNext(transform.localScale);
 			//			stream.SendNext(rigidbody2D.velocity);
 			
@@ -38,7 +38,7 @@ public class NetworkBala : Photon.MonoBehaviour {
 		{
 			// Network player, receive data
 			this.correctPlayerPos = (Vector3)stream.ReceiveNext();
-			this.correctPlayerRot = (Quaternion)stream.ReceiveNext();
+			//this.correctPlayerRot = (Quaternion)stream.ReceiveNext();
 			this.correctPlayerScale = (Vector3)stream.ReceiveNext();
 			//			this.ridigbodyPlayer = (Rigidbody2D)stream.ReceiveNext();
 			

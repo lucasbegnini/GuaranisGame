@@ -13,11 +13,13 @@ public class Controles : MonoBehaviour {
 	private AnimationInfo[] teste;
 	private bool pulo;
 	private bool _isShoting;
+	private bool _onFloor;
 	// Use this for initialization
 	void Start () {
 		anim =  GetComponent<Animator>();
 		pulo = false;
 		_isShoting = false;
+		_onFloor = false;
 	}
 	
 	// Update is called once per frame
@@ -26,15 +28,24 @@ public class Controles : MonoBehaviour {
 			GoLeft();
 		else if(Input.GetKey(KeyCode.RightArrow))
 			GoRight();
+		else
+			Stop ();
 		if(Input.GetKeyDown(KeyCode.Space))
 			Jump();
 		if(Input.GetKeyDown(KeyCode.K)){
 			Atirar ();
 
 		}
-		if(!Input.anyKey){
-			anim.SetTrigger("parado");
-		}
+
+
+
+	}
+
+public void Stop()
+	{
+
+			anim.SetBool ("correndo", false);
+		
 	}
 
 public	void GoLeft() {
@@ -46,8 +57,10 @@ public	void GoLeft() {
 		aux.x=1;
 		transform.localScale = aux;
 		_isfacedRight = false;
-		anim.SetTrigger("correndo");
-
+		if (_onFloor)
+		{
+			anim.SetBool ("correndo", true);
+		}	
 	}
 
 public	void GoRight() {
@@ -59,13 +72,17 @@ public	void GoRight() {
 		aux.x=-1;
 		transform.localScale = aux;
 		_isfacedRight = true;
-		anim.SetTrigger("correndo");
+		if (_onFloor)
+		{
+		 anim.SetBool ("correndo", true);
+		}
 	}
 
 	public void Jump() {
 		GameObject.FindGameObjectWithTag ("jump button").GetComponent<Animator> ().SetTrigger ("Pressionado");
 		if(!pulo)
 		{
+			_onFloor = false;
 			Vector2 aux = rigidbody2D.velocity;
 			aux.y = 18*Vector2.up.y;
 			rigidbody2D.velocity = aux;
@@ -75,7 +92,7 @@ public	void GoRight() {
 public	void Atirar(){
 		GameObject.FindGameObjectWithTag ("fire button").GetComponent<Animator> ().SetTrigger ("Pressionado");
 		if (!_isShoting) {
-			anim.SetTrigger("atirando");
+			anim.SetBool("atirando",true);
 				_isShoting = true;
 				Invoke ("Atirar1", 0.4f);
 				}
@@ -83,6 +100,7 @@ public	void Atirar(){
 	private void Atirar1(){
 		_isShoting = false;
 		instanciarBala();
+		anim.SetBool("atirando",false);
 	}
 
 	void instanciarBala(){
@@ -102,6 +120,7 @@ public	void Atirar(){
 		if(hit.collider.tag == "floor")
 		{
 			pulo = false;
+			_onFloor = true;
 		}
 	}
 

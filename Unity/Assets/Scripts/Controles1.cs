@@ -13,6 +13,7 @@ public class Controles1 : MonoBehaviour {
 	private AnimationInfo[] teste;
 	private bool pulo;
 	private bool _isShoting;
+	private bool _onFloor;
 	// Use this for initialization
 	void Start () {
 		anim =  GetComponent<Animator>();
@@ -21,21 +22,31 @@ public class Controles1 : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()  {
 		if(Input.GetKey(KeyCode.LeftArrow))
 			GoLeft();
 		else if(Input.GetKey(KeyCode.RightArrow))
 			GoRight();
+		else
+			Idle ();
 		if(Input.GetKeyDown(KeyCode.Space))
 			Jump();
 		if(Input.GetKeyDown(KeyCode.K)){
 			Atirar ();
-
+			
 		}
-		if(!Input.anyKey){
-			anim.SetTrigger("parado");
-		}
+		
+		
+		
 	}
+
+	public void Idle()
+	{
+		
+		anim.SetBool ("correndo", false);
+		
+	}
+
 
 public	void GoLeft() {
 		GameObject.FindGameObjectWithTag ("left button").GetComponent<Animator> ().SetTrigger ("Pressionado");
@@ -46,7 +57,10 @@ public	void GoLeft() {
 		aux.x=1;
 		transform.localScale = aux;
 		_isfacedRight = false;
-		anim.SetTrigger("correndo");
+		if (_onFloor)
+		{
+			anim.SetBool ("correndo", true);
+		}	
 
 	}
 
@@ -59,7 +73,10 @@ public	void GoRight() {
 		aux.x=-1;
 		transform.localScale = aux;
 		_isfacedRight = true;
-		anim.SetTrigger("correndo");
+		if (_onFloor)
+		{
+			anim.SetBool ("correndo", true);
+		}
 	}
 
 	public void Jump() {
@@ -75,9 +92,10 @@ public	void GoRight() {
 public	void Atirar(){
 		GameObject.FindGameObjectWithTag ("fire button").GetComponent<Animator> ().SetTrigger ("Pressionado");
 		if (!_isShoting) {
-			anim.SetTrigger("atirando");
+			anim.SetBool("atirando",true);
 				_isShoting = true;
 				Invoke ("Atirar1", 0.4f);
+			anim.SetBool("atirando",false);
 				}
 	}
 	private void Atirar1(){
@@ -101,6 +119,7 @@ public	void Atirar(){
 		if(hit.collider.tag == "floor")
 		{
 			pulo = false;
+			_onFloor = true;
 		}
 	}
 
