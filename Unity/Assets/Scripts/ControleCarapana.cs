@@ -7,8 +7,10 @@ public class ControleCarapana : MonoBehaviour {
 	private Vector2 _maxTela;
 	private Vector2 _novaPosicao;
 	public float speed;
+	private Animator anim;
 	// Use this for initialization
 	void Start () {
+		anim = GetComponent<Animator> ();
 		_minTela = new Vector2(-11f,-12f);
 		_maxTela = new Vector2(11f,1f);
 		speed = 3f;
@@ -32,7 +34,9 @@ public class ControleCarapana : MonoBehaviour {
 //		Debug.Log (c.gameObject.name);
 		if(c.gameObject.CompareTag("dardo")){
 			Destroy(c.gameObject);
-			Kill();
+			anim.SetBool("morrendo", true);
+			Invoke("Kill", 0.8f);
+
 		}
 	}
 

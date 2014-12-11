@@ -11,6 +11,7 @@ public class Tutorial : MonoBehaviour {
 	private GameObject _personagem;
 	private Vector3 posicao;
 	
+
 	// Use this for initialization
 	void Start () {
 		_minTela = new Vector2(-11,-12);
@@ -22,7 +23,14 @@ public class Tutorial : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		Escape ();
+	}
+
+	void Escape()
+	{
+		if(Input.GetKeyDown(KeyCode.Escape))
+		   Application.LoadLevel("Menu");
+			
 	}
 
 	void CriaPersonagem()
