@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Life : MonoBehaviour {
-
+public class LifeMultiplayer : MonoBehaviour {
 	private int Vida;
 	public GameObject Folha;
 	private GameObject[] _Folha;
@@ -10,13 +9,13 @@ public class Life : MonoBehaviour {
 	private Collider2D ColisorPersonagem;
 	private int PlayerID;
 	private Animator anim;
-	Controles1 controle;
+	Controles controle;
 	private SFXSinglePlayer sounds;
 	// Use this for initialization
 	void Start () {
-		controle = GetComponent<Controles1> ();
-		sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
+		controle = GetComponent<Controles> ();
 		anim = GetComponent<Animator> ();
+		sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
 		PlayerID = PhotonNetwork.player.ID;
 		Vida = 3; 
 		_Folha = new GameObject[Vida];
@@ -24,30 +23,30 @@ public class Life : MonoBehaviour {
 		float distanciaY = 1.5f;
 		for(int i = 0; i < Vida; i++)
 		{
-
+			
 			float posicaoFolhaX = GameObject.FindGameObjectWithTag ("HUD").transform.position.x - distanciaX;
 			float posicaoFolhaY = GameObject.FindGameObjectWithTag ("HUD").transform.position.y - distanciaY;
-		posicaoFolha = new Vector3 (posicaoFolhaX, posicaoFolhaY,0);
-
-		_Folha[i] = Instantiate (Folha, posicaoFolha,Quaternion.identity) as GameObject;
-		_Folha[i].transform.parent = GameObject.FindGameObjectWithTag ("MainCamera").transform;
+			posicaoFolha = new Vector3 (posicaoFolhaX, posicaoFolhaY,0);
+			
+			_Folha[i] = Instantiate (Folha, posicaoFolha,Quaternion.identity) as GameObject;
+			_Folha[i].transform.parent = GameObject.FindGameObjectWithTag ("MainCamera").transform;
 			distanciaX = distanciaX - 0.7f;
 		}
-	
+		
 	}
 	public int  Retornaid()
 	{
 		return PhotonNetwork.player.ID;
-
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
-
-
+		
+		
+		
 	}
-
+	
 	void CheckLife()
 	{
 		if (Vida <= 0) {
@@ -55,15 +54,20 @@ public class Life : MonoBehaviour {
 			//Die();		
 		}
 	}
-
+	
 	void Die()
 	{
-
+		if (PhotonNetwork.connected) 
+		{
+			
+		}
+		if (!PhotonNetwork.connected)
+		{
 			Destroy (this.gameObject);
 			Application.LoadLevel (Application.loadedLevel);
-		
+		}
 	}
-
+	
 	// Funçao para causar dano no personagem
 	void takeDamage(int dano)
 	{
@@ -77,13 +81,19 @@ public class Life : MonoBehaviour {
 			Vida--;
 			Destroy(_Folha[Vida]);
 		}
-
-
-	
-			//Destroi o objeto Online - Dardo
-			//Destroy(ColisorPersonagem.gameObject);
+		
+		//Se ele estiver no modo Online - Multiplayer
+		if(PhotonNetwork.connected)
+		{
 			
-
+		}
+		//Se ele estiver no modo Offline - SinglePlay
+		if(!PhotonNetwork.connected)
+		{
+			//Destroi o objeto Online - Dardo
+			PhotonNetwork.Destroy(ColisorPersonagem.gameObject);
+			
+		}
 		//Entra no modo Ghost
 		Ghost();
 		//Executa a animaçao morrendo
@@ -91,24 +101,38 @@ public class Life : MonoBehaviour {
 		//Faz o Check Se nao perdeu toda a vida ja
 		CheckLife();
 	}
-
-
+	
+	
 	void OnTriggerEnter2D(Collider2D c)
 	{
 		//O Objeto colidido se torna um objeto da classe 
 		ColisorPersonagem = c;
-
-	
-		//Verifica se o objeto colidido foi o carapana
-		if (ColisorPersonagem.gameObject.CompareTag("carapana")) 
+		
+		//Verifica se esta no modo offline(SiglePlay)
+		if(!PhotonNetwork.connected)
+		{
+			
+			//Verifica se o objeto colidido foi o carapana
+			if (ColisorPersonagem.gameObject.CompareTag("carapana")) 
 			{
 				//Sofre 1 de dano
 				takeDamage(1);
 			}
+		}
+		
+		//Verifica se esta no modo online(Multiplayer)
+		if (PhotonNetwork.connected)
+		{
+			
+			//Verifica se o objeto colidido foi o dardo e se esse dardo nao pertence ao mesmo
+			if(ColisorPersonagem.gameObject.CompareTag("dardo") && (c.gameObject.GetComponent<ManagerMissile>().Pai != Retornaid())  )
+			{
+				//Sofre 1 de dano
+				takeDamage(1);
+			}
+		}//Fim do If de conexao
 	}//Fim do Colisor
-
-
-
+	
 	//Metodo para deixar o personagem sem sofrere dano por um tempo
 	// apos ter sofrido dano
 	void Ghost()
@@ -116,8 +140,8 @@ public class Life : MonoBehaviour {
 		//Ignora a coliçao entre o personagem e o objeto colidido - Seja Carapana(SinglePlay) ou um dardo(Multiplayer)
 		Physics2D.IgnoreCollision (ColisorPersonagem, collider2D, true);
 	}
-
-
+	
+	
 	//Animaçao do personagem morrendo
 	void AnimacaoMorrendo()
 	{
@@ -126,7 +150,7 @@ public class Life : MonoBehaviour {
 		//Inova o metodo normal em seguida 
 		Invoke ("Normal", 1f);
 	}
-
+	
 	//Metodo para fazer o personagem sair do modo Ghost e desativar a animaçao morrendo
 	void Normal()
 	{
@@ -140,5 +164,4 @@ public class Life : MonoBehaviour {
 		sounds.setMorrendo (false);
 	}
 
-
-}// Fim da classes
+}

@@ -57,10 +57,8 @@ public	void GoLeft() {
 		aux.x=1;
 		transform.localScale = aux;
 		_isfacedRight = false;
-		if (_onFloor)
-		{
 			anim.SetBool ("correndo", true);
-		}	
+
 	}
 
 public	void GoRight() {

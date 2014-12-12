@@ -14,9 +14,11 @@ public class Controles1 : MonoBehaviour {
 	private bool pulo;
 	private bool _isShoting;
 	private bool _onFloor;
+	private SFXSinglePlayer sounds;
 	// Use this for initialization
 	void Start () {
 		anim =  GetComponent<Animator>();
+		sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
 		pulo = false;
 		_isShoting = false;
 	}
@@ -28,7 +30,7 @@ public class Controles1 : MonoBehaviour {
 		else if(Input.GetKey(KeyCode.RightArrow))
 			GoRight();
 		else
-			Idle ();
+			Stop ();
 		if(Input.GetKeyDown(KeyCode.Space))
 			Jump();
 		if(Input.GetKeyDown(KeyCode.K)){
@@ -40,7 +42,8 @@ public class Controles1 : MonoBehaviour {
 		
 	}
 
-	public void Idle()
+
+	public void Stop()
 	{
 		
 		anim.SetBool ("correndo", false);
@@ -83,6 +86,7 @@ public	void GoRight() {
 		GameObject.FindGameObjectWithTag ("jump button").GetComponent<Animator> ().SetTrigger ("Pressionado");
 		if(!pulo)
 		{
+			sounds.setPulando(true);
 			Vector2 aux = rigidbody2D.velocity;
 			aux.y = 18*Vector2.up.y;
 			rigidbody2D.velocity = aux;
@@ -93,14 +97,17 @@ public	void Atirar(){
 		GameObject.FindGameObjectWithTag ("fire button").GetComponent<Animator> ().SetTrigger ("Pressionado");
 		if (!_isShoting) {
 			anim.SetBool("atirando",true);
+			sounds.setAtirando(true);
 				_isShoting = true;
 				Invoke ("Atirar1", 0.4f);
-			anim.SetBool("atirando",false);
+
 				}
 	}
 	private void Atirar1(){
 		_isShoting = false;
 		instanciarBala();
+		anim.SetBool("atirando",false);
+		sounds.setAtirando (false);
 	}
 
 	void instanciarBala(){
@@ -120,6 +127,7 @@ public	void Atirar(){
 		{
 			pulo = false;
 			_onFloor = true;
+			sounds.setPulando(false);
 		}
 	}
 

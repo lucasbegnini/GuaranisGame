@@ -6,10 +6,17 @@ public class RandomMathmaker : MonoBehaviour {
 	private string PersonagemSelecionado;
 	private Vector3 posicao;
 
+
+	void Escape()
+	{
+		if(Input.GetKeyDown(KeyCode.Escape))
+			Application.LoadLevel("Menu");
+		
+	}
 	// Use this for initialization
 	void Start () {
 		posicao = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, 0.0f);
-		PersonagemSelecionado = "Uiapuru";
+		PersonagemSelecionado = "Guarana";
 	
 		PhotonNetwork.ConnectUsingSettings("0.1");
 	}
@@ -37,9 +44,16 @@ public class RandomMathmaker : MonoBehaviour {
 
 		//NameNave = FindObjectOfType<GameStarter> ().naves[SelectArrow.nave].name.ToString ();
 		//Debug.Log(NameNave);
+		spawnPlayer ();
 
+
+	
+	}
+
+	void spawnPlayer()
+	{
 		GameObject personagem = PhotonNetwork.Instantiate(PersonagemSelecionado, posicao, Quaternion.identity, 0);
-
+		
 		//Ativa os controles do personagens
 		Controles controller = personagem.GetComponent<Controles>();
 		controller.enabled = true;
@@ -56,10 +70,11 @@ public class RandomMathmaker : MonoBehaviour {
 		Animator animacoes = personagem.GetComponent<Animator> ();
 		animacoes.enabled = true;
 		//Ativa o colisor do personagem
-	
+
 	}
 	// Update is called once per frame
 	void Update () {
+		Escape ();
 	
 	}
 

@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class VirtualJoystick : MonoBehaviour {
+public class VirtualJoystick1 : MonoBehaviour {
 	
 	public LayerMask whatIsButton;
-	private Controles characterController;
+	private Controles1 characterController;
 	//private Shoot shoot;
 	private int controlType=1;
 	void Start () {
 
-		characterController = GetComponent<Controles> ();
+		characterController = GetComponent<Controles1> ();
 
 	//	shoot = GetComponent<Shoot> ();
 	//	controlType = PlayerPrefs.GetInt("Controls");
