@@ -12,9 +12,11 @@ public class Life : MonoBehaviour {
 	private Animator anim;
 	Controles1 controle;
 	private SFXSinglePlayer sounds;
+	private Score setScore;
 	// Use this for initialization
 	void Start () {
 		controle = GetComponent<Controles1> ();
+		setScore = GameObject.FindGameObjectWithTag ("score").GetComponent<Score> ();
 		sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
 		anim = GetComponent<Animator> ();
 		PlayerID = PhotonNetwork.player.ID;
@@ -58,7 +60,7 @@ public class Life : MonoBehaviour {
 
 	void Die()
 	{
-
+			setScore.SaveScore ();
 			Destroy (this.gameObject);
 			Application.LoadLevel (Application.loadedLevel);
 		
@@ -67,8 +69,7 @@ public class Life : MonoBehaviour {
 	// Funçao para causar dano no personagem
 	void takeDamage(int dano)
 	{
-		//Habilita o som de morte
-		sounds.setMorrendo (true);
+
 		//Desabilita os controles
 		controle.enabled = false;
 		//Primeiro sofre o dano 
@@ -102,6 +103,8 @@ public class Life : MonoBehaviour {
 		//Verifica se o objeto colidido foi o carapana
 		if (ColisorPersonagem.gameObject.CompareTag("carapana")) 
 			{
+			//Habilita o som de morte
+			sounds.setMorrendo (true);
 				//Sofre 1 de dano
 				takeDamage(1);
 			}
@@ -124,7 +127,7 @@ public class Life : MonoBehaviour {
 		//Ativa a animaçao do personagem morrendo
 		anim.SetBool ("morrendo", true);
 		//Inova o metodo normal em seguida 
-		Invoke ("Normal", 1f);
+		Invoke ("Normal", 1.5f);
 	}
 
 	//Metodo para fazer o personagem sair do modo Ghost e desativar a animaçao morrendo

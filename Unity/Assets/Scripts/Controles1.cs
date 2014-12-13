@@ -15,12 +15,14 @@ public class Controles1 : MonoBehaviour {
 	private bool _isShoting;
 	private bool _onFloor;
 	private SFXSinglePlayer sounds;
+
 	// Use this for initialization
 	void Start () {
 		anim =  GetComponent<Animator>();
 		sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
 		pulo = false;
 		_isShoting = false;
+
 	}
 	
 	// Update is called once per frame

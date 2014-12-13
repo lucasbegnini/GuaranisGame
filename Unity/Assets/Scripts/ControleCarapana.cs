@@ -39,6 +39,8 @@ public class ControleCarapana : MonoBehaviour {
 //		Debug.Log (c.gameObject.name);
 		if(c.gameObject.CompareTag("dardo")){
 			Destroy(c.gameObject);
+			setScore.setScore();
+			Debug.Log(setScore.getScore());
 			anim.SetBool("morrendo", true);
 			triggerColisor.enabled = false;
 			Invoke("Kill", 0.8f);
