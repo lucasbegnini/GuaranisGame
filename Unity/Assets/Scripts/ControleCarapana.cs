@@ -40,7 +40,7 @@ public class ControleCarapana : MonoBehaviour {
 		if(c.gameObject.CompareTag("dardo")){
 			Destroy(c.gameObject);
 			setScore.setScore();
-			Debug.Log(setScore.getScore());
+			Handheld.Vibrate();
 			anim.SetBool("morrendo", true);
 			triggerColisor.enabled = false;
 			Invoke("Kill", 0.8f);
@@ -49,6 +49,7 @@ public class ControleCarapana : MonoBehaviour {
 	}
 
 	void Kill(){
+	
 		transform.parent.SendMessage("CriaCarapana");
 		Destroy(gameObject);
 	}

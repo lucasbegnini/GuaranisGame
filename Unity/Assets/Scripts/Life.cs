@@ -37,11 +37,7 @@ public class Life : MonoBehaviour {
 		}
 	
 	}
-	public int  Retornaid()
-	{
-		return PhotonNetwork.player.ID;
 
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -61,6 +57,7 @@ public class Life : MonoBehaviour {
 	void Die()
 	{
 			setScore.SaveScore ();
+		Handheld.Vibrate ();
 			Destroy (this.gameObject);
 			Application.LoadLevel (Application.loadedLevel);
 		
@@ -127,18 +124,25 @@ public class Life : MonoBehaviour {
 		//Ativa a animaçao do personagem morrendo
 		anim.SetBool ("morrendo", true);
 		//Inova o metodo normal em seguida 
-		Invoke ("Normal", 1.5f);
+		Invoke ("Normal", 2f);
+		Invoke ("NormalAnimacao", 1f);
 	}
 
+	void NormalAnimacao()
+	{		
+		//Desativa a animaçao morrendo
+		anim.SetBool ("morrendo", false);
+		//Habilita o controle de volta
+		controle.enabled = true;
+
+	}
 	//Metodo para fazer o personagem sair do modo Ghost e desativar a animaçao morrendo
 	void Normal()
 	{
-		//Desativa a animaçao morrendo
-		anim.SetBool ("morrendo", false);
+
 		//Seta possivel a colisao entre o personagem e objeto colidido novamente
 		Physics2D.IgnoreCollision (ColisorPersonagem, collider2D, false);
-		//Habilita o controle de volta
-		controle.enabled = true;
+
 		//seta o fim do som de morrendo
 		sounds.setMorrendo (false);
 	}

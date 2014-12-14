@@ -24,18 +24,18 @@ public class Controles : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.LeftArrow))
-			GoLeft();
-		else if(Input.GetKey(KeyCode.RightArrow))
-			GoRight();
-		else
-			Stop ();
-		if(Input.GetKeyDown(KeyCode.Space))
-			Jump();
-		if(Input.GetKeyDown(KeyCode.K)){
-			Atirar ();
-
-		}
+//			if(Input.GetKey(KeyCode.LeftArrow))
+//				GoLeft();
+//			else if(Input.GetKey(KeyCode.RightArrow))
+//				GoRight();
+//			else
+//				Stop ();
+//			if(Input.GetKeyDown(KeyCode.Space))
+//				Jump();
+//			if(Input.GetKeyDown(KeyCode.K)){
+//				Atirar ();
+//	
+//			}
 
 
 
@@ -49,7 +49,7 @@ public void Stop()
 	}
 
 public	void GoLeft() {
-		GameObject.FindGameObjectWithTag ("left button").GetComponent<Animator> ().SetTrigger ("Pressionado");
+		//GameObject.FindGameObjectWithTag ("left button").GetComponent<Animator> ().SetTrigger ("Pressionado");
 		Vector3 aux = transform.localScale;
 		Vector2 aux1 = rigidbody2D.velocity;
 		aux1.x = -velocidade*Vector2.right.x;
@@ -57,12 +57,14 @@ public	void GoLeft() {
 		aux.x=1;
 		transform.localScale = aux;
 		_isfacedRight = false;
+		if (!pulo)
+		{
 			anim.SetBool ("correndo", true);
-
+		}	
 	}
 
 public	void GoRight() {
-		GameObject.FindGameObjectWithTag ("right button").GetComponent<Animator> ().SetTrigger ("Pressionado");
+		//GameObject.FindGameObjectWithTag ("right button").GetComponent<Animator> ().SetTrigger ("Pressionado");
 		Vector3 aux = transform.localScale;
 		Vector2 aux1 = rigidbody2D.velocity;
 		aux1.x = velocidade*Vector2.right.x;
@@ -70,14 +72,14 @@ public	void GoRight() {
 		aux.x=-1;
 		transform.localScale = aux;
 		_isfacedRight = true;
-		if (_onFloor)
+		if (!pulo)
 		{
 		 anim.SetBool ("correndo", true);
 		}
 	}
 
 	public void Jump() {
-		GameObject.FindGameObjectWithTag ("jump button").GetComponent<Animator> ().SetTrigger ("Pressionado");
+		//GameObject.FindGameObjectWithTag ("jump button").GetComponent<Animator> ().SetTrigger ("Pressionado");
 		if(!pulo)
 		{
 			_onFloor = false;
@@ -88,7 +90,7 @@ public	void GoRight() {
 		}
 	}
 public	void Atirar(){
-		GameObject.FindGameObjectWithTag ("fire button").GetComponent<Animator> ().SetTrigger ("Pressionado");
+		//GameObject.FindGameObjectWithTag ("fire button").GetComponent<Animator> ().SetTrigger ("Pressionado");
 		if (!_isShoting) {
 			anim.SetBool("atirando",true);
 				_isShoting = true;
@@ -105,7 +107,7 @@ public	void Atirar(){
 		_missile = PhotonNetwork.Instantiate(missile.name, Vector3.zero, Quaternion.identity, 0);
 		_missile.transform.parent = gameObject.transform;
 	//	_missile.GetComponent<ManagerMissile> ().facedRight = _isfacedRight;
-		ManagerMissile manager = _missile.GetComponent<ManagerMissile>();
+		ManageMissileMultiplayer manager = _missile.GetComponent<ManageMissileMultiplayer>();
 		manager.enabled = true;
 		manager.facedRight = _isfacedRight;
 		BoxCollider2D colisor = _missile.GetComponent<BoxCollider2D>();

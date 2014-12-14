@@ -10,12 +10,12 @@ public class LifeMultiplayer : MonoBehaviour {
 	private int PlayerID;
 	private Animator anim;
 	Controles controle;
-	private SFXSinglePlayer sounds;
+//	private SFXSinglePlayer sounds;
 	// Use this for initialization
 	void Start () {
 		controle = GetComponent<Controles> ();
 		anim = GetComponent<Animator> ();
-		sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
+//		sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
 		PlayerID = PhotonNetwork.player.ID;
 		Vida = 3; 
 		_Folha = new GameObject[Vida];
@@ -59,7 +59,8 @@ public class LifeMultiplayer : MonoBehaviour {
 	{
 		if (PhotonNetwork.connected) 
 		{
-			
+			PhotonNetwork.Destroy(gameObject);
+			Application.LoadLevel (Application.loadedLevel);
 		}
 		if (!PhotonNetwork.connected)
 		{
@@ -72,7 +73,7 @@ public class LifeMultiplayer : MonoBehaviour {
 	void takeDamage(int dano)
 	{
 		//Habilita o som de morte
-		sounds.setMorrendo (true);
+//		sounds.setMorrendo (true);
 		//Desabilita os controles
 		controle.enabled = false;
 		//Primeiro sofre o dano 
@@ -125,7 +126,7 @@ public class LifeMultiplayer : MonoBehaviour {
 		{
 			
 			//Verifica se o objeto colidido foi o dardo e se esse dardo nao pertence ao mesmo
-			if(ColisorPersonagem.gameObject.CompareTag("dardo") && (c.gameObject.GetComponent<ManagerMissile>().Pai != Retornaid())  )
+			if(ColisorPersonagem.gameObject.CompareTag("dardo") && (c.gameObject.GetComponent<ManageMissileMultiplayer>().Pai != Retornaid())  )
 			{
 				//Sofre 1 de dano
 				takeDamage(1);
@@ -161,7 +162,7 @@ public class LifeMultiplayer : MonoBehaviour {
 		//Habilita o controle de volta
 		controle.enabled = true;
 		//seta o fim do som de morrendo
-		sounds.setMorrendo (false);
+//		sounds.setMorrendo (false);
 	}
 
 }

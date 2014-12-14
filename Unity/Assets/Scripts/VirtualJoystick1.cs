@@ -27,17 +27,24 @@ public class VirtualJoystick1 : MonoBehaviour {
 				if(Physics.Raycast(touchPos,Vector3.forward, out hit,whatIsButton)){
 					
 					if(hit.collider.tag == "left button")
+					{
 						characterController.GoLeft();
-					else if(hit.collider.tag == "right button")
-						characterController.GoRight();
-					else
-						characterController.Stop();
+					}else{
+						if(hit.collider.tag == "right button")
+						{
+							characterController.GoRight();
+						} else {
+							characterController.Stop();
+						}
+					}
+					
 					if(hit.collider.tag == "fire button")
-							characterController.Atirar();
+						characterController.Atirar();
 					if(hit.collider.tag == "jump button")
 						characterController.Jump();
-						//GetComponent<Animator> ().SetBool("acelerando",true);
+
 				}
+
 			}
 		}
 	}
