@@ -17,7 +17,7 @@ public class RandomMathmaker : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		posicao = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, 0.0f);
-		PersonagemSelecionado = "Uiapuru";
+		PersonagemSelecionado = "Guarana";
 	
 		PhotonNetwork.ConnectUsingSettings("0.1");
 	}

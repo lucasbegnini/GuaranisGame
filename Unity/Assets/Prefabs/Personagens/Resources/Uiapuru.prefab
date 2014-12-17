@@ -29,12 +29,11 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400004}
-  - 61: {fileID: 6100000}
-  - 58: {fileID: 5800000}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400012}
+  - 60: {fileID: 6007248}
   m_Layer: 0
   m_Name: Uiapuru
   m_TagString: Player
@@ -82,8 +81,8 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
---- !u!58 &5800000
-CircleCollider2D:
+--- !u!60 &6007248
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -91,19 +90,29 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .389999986
-  m_Center: {x: -.0199999996, y: -.680000007}
---- !u!61 &6100000
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: .769999981, y: 1.11000001}
-  m_Center: {x: 0, y: 0}
+  m_Poly:
+    m_Paths:
+    - - {x: -.400637627, y: -.525355816}
+      - {x: -.410049438, y: -.627535582}
+      - {x: -.400217772, y: -.733009815}
+      - {x: -.351047277, y: -.854159832}
+      - {x: -.277743101, y: -.936658382}
+      - {x: -.195114851, y: -.99245739}
+      - {x: -.104613304, y: -1.02677679}
+      - {x: -.0119247437, y: -1.03898954}
+      - {x: .108952522, y: -1.0277915}
+      - {x: .22489953, y: -.97405386}
+      - {x: .304797173, y: -.907306194}
+      - {x: .349002361, y: -.841195107}
+      - {x: .398189425, y: -.733021259}
+      - {x: .408630252, y: -.605637789}
+      - {x: .386982679, y: -.4909935}
+      - {x: .360168695, y: -.431680679}
+      - {x: .332147479, y: -.392148733}
+      - {x: .332289934, y: -.394649744}
+      - {x: .336076498, y: .688998222}
+      - {x: -.366870165, y: .687322617}
+      - {x: -.367307663, y: -.444671631}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
