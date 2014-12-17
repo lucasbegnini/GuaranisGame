@@ -18,7 +18,7 @@ public class Plataforma : MonoBehaviour {
 	
 
 		if (PhotonNetwork.connected) {
-			PlataformaMultiPlay();		
+			PlataformaSinglePlay();		
 		}
 		if (!PhotonNetwork.connected) {
 			PlataformaSinglePlay();		

@@ -8,8 +8,12 @@ public class ManageMissileMultiplayer :Photon.MonoBehaviour {
 	private Vector3 correctPlayerPos;
 	private Quaternion correctPlayerRot;
 	private Vector3 correctPlayerScale;
+	private float startTime;
+	private float journeyLength;
+	private Vector2 correctVelocity;
 	// Use this for initialization
 	void Start () {
+		startTime = Time.time;
 		Vector3 playerCenter = transform.parent.transform.position;
 		if(facedRight){
 			rigidbody2D.velocity = new Vector2(speed,0);
@@ -30,8 +34,11 @@ public class ManageMissileMultiplayer :Photon.MonoBehaviour {
 	void Update () {
 		if (!photonView.isMine) 
 		{
-			transform.position = Vector3.Lerp(transform.position, this.correctPlayerPos, Time.deltaTime);
-			transform.localScale = this.correctPlayerScale;
+			float distCovered = (Time.time - startTime) * speed;
+			float fracJourney = distCovered / journeyLength;
+			transform.position = Vector3.Lerp(transform.position, this.correctPlayerPos, fracJourney);
+			rigidbody2D.velocity = this.correctVelocity;
+	//		transform.localScale = this.correctPlayerScale;
 		}
 	}
 	
@@ -75,6 +82,7 @@ public class ManageMissileMultiplayer :Photon.MonoBehaviour {
 			stream.SendNext(transform.position);
 			//stream.SendNext(transform.rotation);
 			stream.SendNext(transform.localScale);
+			stream.SendNext(rigidbody2D.velocity);
 			//			stream.SendNext(rigidbody2D.velocity);
 			
 			
@@ -85,6 +93,7 @@ public class ManageMissileMultiplayer :Photon.MonoBehaviour {
 			this.correctPlayerPos = (Vector3)stream.ReceiveNext();
 			//this.correctPlayerRot = (Quaternion)stream.ReceiveNext();
 			this.correctPlayerScale = (Vector3)stream.ReceiveNext();
+			this.correctVelocity = (Vector2)stream.ReceiveNext();
 			//			this.ridigbodyPlayer = (Rigidbody2D)stream.ReceiveNext();
 			
 		}

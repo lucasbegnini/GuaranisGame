@@ -119,6 +119,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400012}
   - 212: {fileID: 21200008}
+  - 114: {fileID: 11483494}
   m_Layer: 0
   m_Name: hud_uirapuru
   m_TagString: HUD
@@ -368,11 +369,24 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 468e456b6e6c1ff41b0b3bb263759af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11483494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01647faeb09f66c4b8f94711bec9e2b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Uirapuru: {fileID: 21300000, guid: 1252b518e5a897c48a3b08b6cf9acd83, type: 3}
+  Guarana: {fileID: 21300000, guid: 80a2cc9c4ead5b34487bdffa3b1814fe, type: 3}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

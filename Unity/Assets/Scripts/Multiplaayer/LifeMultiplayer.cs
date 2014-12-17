@@ -10,8 +10,11 @@ public class LifeMultiplayer : MonoBehaviour {
 	private int PlayerID;
 	private Animator anim;
 	Controles controle;
+	private Transform correctPosition;
 //	private SFXSinglePlayer sounds;
 	// Use this for initialization
+
+
 	void Start () {
 		controle = GetComponent<Controles> ();
 		anim = GetComponent<Animator> ();

@@ -21,6 +21,10 @@ public class Controles : MonoBehaviour {
 		_isShoting = false;
 		_onFloor = false;
 	}
+	public int getVelocidade()
+	{
+		return velocidade;
+	}
 	
 	// Update is called once per frame
 	void Update () {
