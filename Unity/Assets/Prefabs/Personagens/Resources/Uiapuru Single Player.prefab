@@ -12,11 +12,12 @@ GameObject:
   - 114: {fileID: 11400000}
   - 95: {fileID: 9500000}
   - 50: {fileID: 5000000}
+  - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400008}
-  - 58: {fileID: 5807856}
-  - 61: {fileID: 6140716}
-  - 114: {fileID: 11400004}
+  - 114: {fileID: 11400006}
+  - 114: {fileID: 11400010}
+  - 60: {fileID: 6095548}
   m_Layer: 0
   m_Name: Uiapuru Single Player
   m_TagString: Player
@@ -31,7 +32,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2423408, y: -8.5552206, z: 0}
+  m_LocalPosition: {x: -2.32094431, y: -3.37075567, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,8 +52,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!58 &5807856
-CircleCollider2D:
+--- !u!60 &6095548
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -60,19 +61,29 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .409999996
-  m_Center: {x: 0, y: -.629999995}
---- !u!61 &6140716
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: .702855229, y: 1.17153323}
-  m_Center: {x: -.0193955898, y: .106677055}
+  m_Poly:
+    m_Paths:
+    - - {x: -.400637627, y: -.525355816}
+      - {x: -.410049438, y: -.627535582}
+      - {x: -.400217772, y: -.733009815}
+      - {x: -.351047277, y: -.854159832}
+      - {x: -.277743101, y: -.936658382}
+      - {x: -.195114851, y: -.99245739}
+      - {x: -.104613304, y: -1.02677679}
+      - {x: -.0119247437, y: -1.03898954}
+      - {x: .108952522, y: -1.0277915}
+      - {x: .22489953, y: -.97405386}
+      - {x: .304797173, y: -.907306194}
+      - {x: .349002361, y: -.841195107}
+      - {x: .398189425, y: -.733021259}
+      - {x: .408630252, y: -.605637789}
+      - {x: .386982679, y: -.4909935}
+      - {x: .360168695, y: -.431680679}
+      - {x: .332147479, y: -.392148733}
+      - {x: .332289934, y: -.394649744}
+      - {x: .336076498, y: .688998222}
+      - {x: -.366870165, y: .687322617}
+      - {x: -.367307663, y: -.444671631}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -102,6 +113,7 @@ MonoBehaviour:
   velocidade: 8
   missile: {fileID: 100000, guid: e85de8defb730f3448158d81998f8714, type: 2}
   _isfacedRight: 0
+  edge: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,10 +125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a1d41ac648860438004c931674cb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitMaxX: 7.30000019
-  limitMinX: -6.5
-  limitMaxY: 0
-  limitMinY: -11.5
+  limitMaxX: 14.8000002
+  limitMinX: -14.5
+  limitMaxY: 5
+  limitMinY: -11
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,12 +137,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6de2456d0c0e5fd46aae3f8d1ee3bfb7, type: 3}
+  m_Script: {fileID: 11500000, guid: 822cb900d8a93c240916a52113036789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   whatIsButton:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f4a065805957f4b94d7c308816e7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,6 +166,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Folha: {fileID: 100000, guid: c9947ed696a4ae24d8a0d41465b676f4, type: 2}
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75aa6ecb6836c1d43b39b897f9825e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulo: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
