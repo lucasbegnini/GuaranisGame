@@ -17,7 +17,7 @@ public class RandomMathmaker : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		posicao = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, 0.0f);
-		PersonagemSelecionado = "Guarana";
+		getPersonagem ();
 	
 		PhotonNetwork.ConnectUsingSettings("0.1");
 	}
@@ -25,6 +25,15 @@ public class RandomMathmaker : MonoBehaviour {
 	void OnGUI()
 	{
 		GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
+	}
+
+	void getPersonagem()
+	{
+		if (PlayerPrefs.GetInt ("escolha") == 1)
+			PersonagemSelecionado = "Uiapuru";
+		if (PlayerPrefs.GetInt ("escolha") == 2)
+			PersonagemSelecionado = "Guarana";
+		
 	}
 
 	void OnJoinedLobby()

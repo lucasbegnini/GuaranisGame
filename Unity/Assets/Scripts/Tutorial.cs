@@ -9,6 +9,8 @@ public class Tutorial : MonoBehaviour {
 	private GameObject _carapana;
 	public GameObject personagem;
 	private GameObject _personagem;
+	public GameObject Uirapuru;
+	public GameObject Guarana;
 	private Vector3 posicao;
 	
 
@@ -17,6 +19,7 @@ public class Tutorial : MonoBehaviour {
 		_minTela = new Vector2(-11,-12);
 		_maxTela = new Vector2(11,1);
 		posicao = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, 0.0f);
+		getPersonagem ();
 		CriaPersonagem();
 		CriaCarapana();
 	}
@@ -31,6 +34,15 @@ public class Tutorial : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Escape))
 		   Application.LoadLevel("Menu");
 			
+	}
+
+	void getPersonagem()
+	{
+		if (PlayerPrefs.GetInt ("escolha") == 1)
+			personagem = Uirapuru;
+		if (PlayerPrefs.GetInt ("escolha") == 2)
+			personagem = Guarana;
+		
 	}
 
 	void CriaPersonagem()

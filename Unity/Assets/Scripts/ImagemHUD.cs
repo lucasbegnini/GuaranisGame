@@ -9,7 +9,7 @@ public class ImagemHUD : MonoBehaviour {
 	void Start () {
 
 		getPersonagem ();
-		escolha = Guarana;
+		//escolha = Guarana;
 			GetComponent<SpriteRenderer> ().sprite = escolha;
 	
 	}
