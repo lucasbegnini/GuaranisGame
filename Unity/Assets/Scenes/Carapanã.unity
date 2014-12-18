@@ -103,6 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carapana: {fileID: 100000, guid: cd28e81b8de2fb343bb3accb594052f8, type: 2}
   personagem: {fileID: 100002, guid: 459df9ac65f2fa148b8adef155e8d9a0, type: 2}
+  Uirapuru: {fileID: 100002, guid: 459df9ac65f2fa148b8adef155e8d9a0, type: 2}
+  Guarana: {fileID: 100000, guid: 7b4cc23ff9fa4da4cb5e4783b87f014e, type: 2}
 --- !u!4 &66156568
 Transform:
   m_ObjectHideFlags: 0

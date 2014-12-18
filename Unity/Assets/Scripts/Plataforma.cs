@@ -25,6 +25,8 @@ public class Plataforma : MonoBehaviour {
 		}
 
 
+
+
 	}
 
 	void PlataformaMultiPlay()

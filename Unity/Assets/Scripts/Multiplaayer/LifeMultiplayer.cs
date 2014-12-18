@@ -11,6 +11,7 @@ public class LifeMultiplayer : MonoBehaviour {
 	private Animator anim;
 	Controles controle;
 	private Transform correctPosition;
+	private SFXSinglePlayer sounds;
 //	private SFXSinglePlayer sounds;
 	// Use this for initialization
 
@@ -18,6 +19,7 @@ public class LifeMultiplayer : MonoBehaviour {
 	void Start () {
 		controle = GetComponent<Controles> ();
 		anim = GetComponent<Animator> ();
+		sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
 //		sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
 		PlayerID = PhotonNetwork.player.ID;
 		Vida = 3; 
@@ -131,6 +133,7 @@ public class LifeMultiplayer : MonoBehaviour {
 			//Verifica se o objeto colidido foi o dardo e se esse dardo nao pertence ao mesmo
 			if(ColisorPersonagem.gameObject.CompareTag("dardo") && (c.gameObject.GetComponent<ManageMissileMultiplayer>().Pai != Retornaid())  )
 			{
+				sounds.setMorrendo (true);
 				//Sofre 1 de dano
 				takeDamage(1);
 			}
@@ -158,6 +161,8 @@ public class LifeMultiplayer : MonoBehaviour {
 	//Metodo para fazer o personagem sair do modo Ghost e desativar a animaçao morrendo
 	void Normal()
 	{
+		//seta o fim do som de morrendo
+		sounds.setMorrendo (false);
 		//Desativa a animaçao morrendo
 		anim.SetBool ("morrendo", false);
 		//Seta possivel a colisao entre o personagem e objeto colidido novamente

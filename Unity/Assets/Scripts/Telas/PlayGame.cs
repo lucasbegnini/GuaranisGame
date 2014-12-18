@@ -25,7 +25,8 @@ public class PlayGame : MonoBehaviour {
 
 	void LoadTela()
 	{
-		Application.LoadLevel ("Mapa 1-1");
+		PlayerPrefs.SetInt ("multiplayer", 1);
+		Application.LoadLevel ("SelecaoPersonagem");
 	}
 	// Update is called once per frame
 	void Update () {

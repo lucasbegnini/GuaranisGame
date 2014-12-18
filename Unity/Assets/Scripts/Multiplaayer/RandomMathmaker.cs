@@ -18,6 +18,7 @@ public class RandomMathmaker : MonoBehaviour {
 	void Start () {
 		posicao = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, 0.0f);
 		getPersonagem ();
+		//PersonagemSelecionado = "Uiapuru";
 	
 		PhotonNetwork.ConnectUsingSettings("0.1");
 	}
@@ -75,7 +76,7 @@ public class RandomMathmaker : MonoBehaviour {
 		life.enabled = true;
 //		NetworkCharacter network = personagem.GetComponent<NetworkCharacter> ();
 //		network.enabled = true;
-		BoxCollider2D Colisor = personagem.GetComponent<BoxCollider2D> ();
+		PolygonCollider2D Colisor = personagem.GetComponent<PolygonCollider2D> ();
 		Colisor.enabled = true;
 		Animator animacoes = personagem.GetComponent<Animator> ();
 		animacoes.enabled = true;
