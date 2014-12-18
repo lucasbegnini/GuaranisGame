@@ -11,18 +11,32 @@ public class LifeMultiplayer : MonoBehaviour {
 	private Animator anim;
 	Controles controle;
 	private Transform correctPosition;
-	private SFXSinglePlayer sounds;
+//	private SFXSinglePlayer sounds;
+	private GameObject telafinal;
 //	private SFXSinglePlayer sounds;
 	// Use this for initialization
 
 
 	void Start () {
+		telafinal = GameObject.FindGameObjectWithTag ("telafinal");
+		telafinal.SetActive (false);
 		controle = GetComponent<Controles> ();
 		anim = GetComponent<Animator> ();
-		sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
+	//	sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
 //		sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
 		PlayerID = PhotonNetwork.player.ID;
 		Vida = 3; 
+
+		
+	}
+	public int  Retornaid()
+	{
+		return PhotonNetwork.player.ID;
+		
+	}
+
+	public void CriarFolhas()
+	{
 		_Folha = new GameObject[Vida];
 		float distanciaX = 0.8f;
 		float distanciaY = 1.5f;
@@ -37,12 +51,6 @@ public class LifeMultiplayer : MonoBehaviour {
 			_Folha[i].transform.parent = GameObject.FindGameObjectWithTag ("MainCamera").transform;
 			distanciaX = distanciaX - 0.7f;
 		}
-		
-	}
-	public int  Retornaid()
-	{
-		return PhotonNetwork.player.ID;
-		
 	}
 	
 	// Update is called once per frame
@@ -62,16 +70,9 @@ public class LifeMultiplayer : MonoBehaviour {
 	
 	void Die()
 	{
-		if (PhotonNetwork.connected) 
-		{
-			PhotonNetwork.Destroy(gameObject);
-			Application.LoadLevel (Application.loadedLevel);
-		}
-		if (!PhotonNetwork.connected)
-		{
-			Destroy (this.gameObject);
-			Application.LoadLevel (Application.loadedLevel);
-		}
+		PhotonNetwork.Destroy (gameObject);
+		PhotonNetwork.Disconnect ();
+		telafinal.SetActive (true);
 	}
 	
 	// Funçao para causar dano no personagem
@@ -80,12 +81,12 @@ public class LifeMultiplayer : MonoBehaviour {
 		//Habilita o som de morte
 //		sounds.setMorrendo (true);
 		//Desabilita os controles
-		controle.enabled = false;
+//		controle.enabled = false;
 		//Primeiro sofre o dano 
 		for(int i = 0; i< dano; i++)
 		{
 			Vida--;
-			Destroy(_Folha[Vida]);
+//			Destroy(_Folha[Vida]);
 		}
 		
 		//Se ele estiver no modo Online - Multiplayer
@@ -133,7 +134,7 @@ public class LifeMultiplayer : MonoBehaviour {
 			//Verifica se o objeto colidido foi o dardo e se esse dardo nao pertence ao mesmo
 			if(ColisorPersonagem.gameObject.CompareTag("dardo") && (c.gameObject.GetComponent<ManageMissileMultiplayer>().Pai != Retornaid())  )
 			{
-				sounds.setMorrendo (true);
+//				sounds.setMorrendo (true);
 				//Sofre 1 de dano
 				takeDamage(1);
 			}
@@ -162,7 +163,7 @@ public class LifeMultiplayer : MonoBehaviour {
 	void Normal()
 	{
 		//seta o fim do som de morrendo
-		sounds.setMorrendo (false);
+	//	sounds.setMorrendo (false);
 		//Desativa a animaçao morrendo
 		anim.SetBool ("morrendo", false);
 		//Seta possivel a colisao entre o personagem e objeto colidido novamente

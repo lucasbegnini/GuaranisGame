@@ -11,7 +11,9 @@ public class ImagemHUD : MonoBehaviour {
 		getPersonagem ();
 		//escolha = Guarana;
 			GetComponent<SpriteRenderer> ().sprite = escolha;
-	
+		if (PhotonNetwork.connected) {
+						GameObject.FindGameObjectWithTag ("Player").GetComponent<LifeMultiplayer> ().CriarFolhas (); 
+				}
 	}
 
 	void getPersonagem()

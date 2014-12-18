@@ -80,6 +80,8 @@ public class RandomMathmaker : MonoBehaviour {
 		Colisor.enabled = true;
 		Animator animacoes = personagem.GetComponent<Animator> ();
 		animacoes.enabled = true;
+		PosicaoIDPlayer ID = personagem.GetComponentInChildren<PosicaoIDPlayer> ();
+		ID.enabled = true;
 		//Ativa o colisor do personagem
 
 	}

@@ -15,12 +15,14 @@ public class Controles : MonoBehaviour {
 	private bool _isShoting;
 	private bool _onFloor;
 	private SFXSinglePlayer sounds;
+
 	// Use this for initialization
 	void Start () {
 		anim =  GetComponent<Animator>();
 		pulo = false;
 		_isShoting = false;
 		_onFloor = false;
+
 		sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
 	}
 	public int getVelocidade()
@@ -30,19 +32,19 @@ public class Controles : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-			if(Input.GetKey(KeyCode.LeftArrow))
-				GoLeft();
-			else if(Input.GetKey(KeyCode.RightArrow))
-				GoRight();
-			else
-				Stop ();
-			if(Input.GetKeyDown(KeyCode.Space))
-				Jump();
-			if(Input.GetKeyDown(KeyCode.K)){
-				Atirar ();
-	
-			}
-
+//			if(Input.GetKey(KeyCode.LeftArrow))
+//				GoLeft();
+//			else if(Input.GetKey(KeyCode.RightArrow))
+//				GoRight();
+//			else
+//				Stop ();
+//			if(Input.GetKeyDown(KeyCode.Space))
+//				Jump();
+//			if(Input.GetKeyDown(KeyCode.K)){
+//				Atirar ();
+//	
+//			}
+//
 
 
 	}
