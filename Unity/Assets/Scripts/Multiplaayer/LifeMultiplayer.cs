@@ -12,14 +12,13 @@ public class LifeMultiplayer : MonoBehaviour {
 	Controles controle;
 	private Transform correctPosition;
 //	private SFXSinglePlayer sounds;
-	private GameObject telafinal;
+	private GameObject roundControl;
 //	private SFXSinglePlayer sounds;
 	// Use this for initialization
 
 
 	void Start () {
-		telafinal = GameObject.FindGameObjectWithTag ("telafinal");
-		telafinal.SetActive (false);
+		roundControl = GameObject.FindGameObjectWithTag ("round");
 		controle = GetComponent<Controles> ();
 		anim = GetComponent<Animator> ();
 	//	sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
@@ -59,7 +58,7 @@ public class LifeMultiplayer : MonoBehaviour {
 		
 		
 	}
-	
+
 	void CheckLife()
 	{
 		if (Vida <= 0) {
@@ -72,7 +71,8 @@ public class LifeMultiplayer : MonoBehaviour {
 	{
 		PhotonNetwork.Destroy (gameObject);
 		PhotonNetwork.Disconnect ();
-		telafinal.SetActive (true);
+		roundControl.GetComponent<Round> ().Die();
+
 	}
 	
 	// Funçao para causar dano no personagem
