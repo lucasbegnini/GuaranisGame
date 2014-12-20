@@ -13,11 +13,15 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 	private float startTime;
 	public float speed;
 	private float journeyLength;
+	private Round round;
+	private SFXSinglePlayer sfx;
 	//SFXSinglePlayer sons;
 	//private AnimationInfo info;
 	void Start()
 	{
+		round = GameObject.FindGameObjectWithTag ("round").GetComponent<Round> ();
 		startTime = Time.time;
+		sfx = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
 		//sons = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
 		animacao = GetComponent<Animator> ();
 		speed = GetComponent<Controles>().getVelocidade();
@@ -53,6 +57,9 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 			stream.SendNext(animacao.GetBool("atirando"));
 			stream.SendNext(animacao.GetBool("morrendo"));
 			stream.SendNext(rigidbody2D.velocity);
+			stream.SendNext(round.getFimdeJogo());
+			stream.SendNext(sfx.getMorrendo());
+			stream.SendNext(sfx.getAtirando());
 
 			
 		}
@@ -66,7 +73,9 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 			animacao.SetBool("atirando",(bool)stream.ReceiveNext());
 			animacao.SetBool("morrendo",(bool)stream.ReceiveNext());
 			this.correctVelocity = (Vector2)stream.ReceiveNext();
-
+			round.setFimdeJogo((bool)stream.ReceiveNext());
+			sfx.setMorrendo((bool)stream.ReceiveNext());
+			sfx.setAtirando((bool)stream.ReceiveNext());
 		}
 	}
 }

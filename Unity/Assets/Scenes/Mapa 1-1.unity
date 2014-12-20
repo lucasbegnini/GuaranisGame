@@ -412,7 +412,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 197624298}
   - 212: {fileID: 197624299}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trofeu2
   m_TagString: trofeu2
   m_Icon: {fileID: 0}
@@ -426,10 +426,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 197624297}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .100000001, y: -3.5, z: 0}
-  m_LocalScale: {x: 1.81818175, y: 1.81818175, z: 1}
+  m_LocalPosition: {x: -.149999976, y: -.249999911, z: 0}
+  m_LocalScale: {x: .909090877, y: .909090877, z: 1}
   m_Children: []
-  m_Father: {fileID: 2096848999}
+  m_Father: {fileID: 904955452}
   m_RootOrder: 1
 --- !u!212 &197624299
 SpriteRenderer:
@@ -450,7 +450,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 1818420295
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 864366d00b416f24b9bc7aed3405e92b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &242909015
@@ -1076,7 +1076,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 541849790}
   - 212: {fileID: 541849791}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trofeu3
   m_TagString: trofeu3
   m_Icon: {fileID: 0}
@@ -1090,10 +1090,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 541849789}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.29999995, y: -2.70000005, z: 0}
-  m_LocalScale: {x: 1.81818175, y: 1.81818175, z: 1}
+  m_LocalPosition: {x: 1.45000005, y: .150000185, z: 0}
+  m_LocalScale: {x: .909090877, y: .909090877, z: 1}
   m_Children: []
-  m_Father: {fileID: 2096848999}
+  m_Father: {fileID: 904955452}
   m_RootOrder: 2
 --- !u!212 &541849791
 SpriteRenderer:
@@ -1114,7 +1114,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 1818420295
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 864366d00b416f24b9bc7aed3405e92b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &556894624
@@ -1233,7 +1233,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 904955452}
-  m_RootOrder: 2
+  m_RootOrder: 5
 --- !u!114 &586674593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1485,6 +1485,9 @@ Transform:
   m_LocalPosition: {x: .800000012, y: .400000006, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1421330056}
+  - {fileID: 197624298}
+  - {fileID: 541849790}
   - {fileID: 2096848999}
   - {fileID: 917568673}
   - {fileID: 586674592}
@@ -1541,7 +1544,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 904955452}
-  m_RootOrder: 1
+  m_RootOrder: 4
 --- !u!114 &917568674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2301,7 +2304,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1421330056}
   - 212: {fileID: 1421330057}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trofeu1
   m_TagString: trofeu1
   m_Icon: {fileID: 0}
@@ -2315,10 +2318,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1421330055}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0999999, y: -2.70000005, z: 0}
-  m_LocalScale: {x: 1.81818175, y: 1.81818175, z: 1}
+  m_LocalPosition: {x: -1.74999988, y: .150000185, z: 0}
+  m_LocalScale: {x: .909090877, y: .909090877, z: 1}
   m_Children: []
-  m_Father: {fileID: 2096848999}
+  m_Father: {fileID: 904955452}
   m_RootOrder: 0
 --- !u!212 &1421330057
 SpriteRenderer:
@@ -2339,7 +2342,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 1818420295
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 864366d00b416f24b9bc7aed3405e92b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1487435998
@@ -3155,6 +3158,45 @@ Prefab:
   m_RootGameObject: {fileID: 509008786}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &2061249165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2061249167}
+  - 114: {fileID: 2061249166}
+  m_Layer: 0
+  m_Name: Trofeus
+  m_TagString: trofeuGO
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2061249166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2061249165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caa84d334ce5af4a853ed23a06b099e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2061249167
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2061249165}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.149999857, y: -7.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &2064245284
 GameObject:
   m_ObjectHideFlags: 0
@@ -3319,7 +3361,7 @@ GameObject:
   - 4: {fileID: 2096848999}
   - 212: {fileID: 2096849001}
   - 114: {fileID: 2096849000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hud Campeao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3334,13 +3376,10 @@ Transform:
   m_GameObject: {fileID: 2096848998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.199999928, y: 1.50000012, z: 0}
-  m_LocalScale: {x: .550000012, y: .550000012, z: 1}
-  m_Children:
-  - {fileID: 1421330056}
-  - {fileID: 197624298}
-  - {fileID: 541849790}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
   m_Father: {fileID: 904955452}
-  m_RootOrder: 0
+  m_RootOrder: 3
 --- !u!114 &2096849000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3373,6 +3412,6 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 1818420295
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: a0ca76a313242854198e4aac6c108a77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

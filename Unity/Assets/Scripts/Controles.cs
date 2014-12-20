@@ -32,18 +32,18 @@ public class Controles : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//			if(Input.GetKey(KeyCode.LeftArrow))
-//				GoLeft();
-//			else if(Input.GetKey(KeyCode.RightArrow))
-//				GoRight();
-//			else
-//				Stop ();
-//			if(Input.GetKeyDown(KeyCode.Space))
-//				Jump();
-//			if(Input.GetKeyDown(KeyCode.K)){
-//				Atirar ();
-//	
-//			}
+			if(Input.GetKey(KeyCode.LeftArrow))
+				GoLeft();
+			else if(Input.GetKey(KeyCode.RightArrow))
+				GoRight();
+			else
+				Stop ();
+			if(Input.GetKeyDown(KeyCode.Space))
+				Jump();
+			if(Input.GetKeyDown(KeyCode.K)){
+				Atirar ();
+	
+			}
 //
 
 

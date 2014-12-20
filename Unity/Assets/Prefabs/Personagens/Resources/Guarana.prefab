@@ -101,7 +101,7 @@ Rigidbody2D:
   m_GravityScale: 4
   m_FixedAngle: 1
   m_IsKinematic: 0
-  m_Interpolate: 2
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
 --- !u!60 &6036460
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c721057c30d4c84a8f165adca9ee295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: 8
+  velocidade: 10
   missile: {fileID: 100000, guid: fee3ef9bca71b0744aed8bd2980ea79c, type: 2}
   _isfacedRight: 0
 --- !u!114 &11426326
