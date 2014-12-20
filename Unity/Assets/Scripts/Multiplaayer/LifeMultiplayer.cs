@@ -69,16 +69,12 @@ public class LifeMultiplayer : MonoBehaviour {
 	
 	void Die()
 	{
-		roundControl.GetComponent<Round> ().Die();
-		Invoke ("DestroiPersonagem", 1.0f);
-
-	}
-
-	void DestroiPersonagem()
-	{
 		PhotonNetwork.Destroy (gameObject);
-	}
+		PhotonNetwork.Disconnect ();
+		roundControl.GetComponent<Round> ().Die();
 
+	}
+	
 	// Funçao para causar dano no personagem
 	void takeDamage(int dano)
 	{

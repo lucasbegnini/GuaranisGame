@@ -11,8 +11,10 @@ public class Aranha : MonoBehaviour {
 	private Vector3 _novaPosicao;
 	public GameObject personagem;
 	private GameObject _personagem;
+	private int life;
 	// Use this for initialization
 	void Start () {
+		life = 50;
 		Vector3 posicao = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, 0.0f);
 		_personagem = GameObject.Instantiate(personagem, posicao, Quaternion.identity) as GameObject;
 		Invoke("NewWave",5);
@@ -43,7 +45,7 @@ public class Aranha : MonoBehaviour {
 	void AranhaIn(){
 		speed = 0.5f;
 		_novaPosicao = aranha.transform.position;
-		_novaPosicao.y = -9;
+		_novaPosicao.y = -2;
 		speed = 3;
 		Invoke ("AranhaChange",3);
 		Invoke ("AranhaChange",6);
@@ -52,14 +54,20 @@ public class Aranha : MonoBehaviour {
 
 	void AranhaChange(){
 		_novaPosicao = aranha.transform.position;
-		_novaPosicao.y = Random.Range(5,-13);
+		_novaPosicao.y = Random.Range(-2f,5f);
 	}
 
 	void AranhaOut(){
-		speed = 10;
+		speed = 2;
 		_novaPosicao = aranha.transform.position;
 		_novaPosicao.y = 15;
 		NewWave();
 		Invoke("AranhaIn",14);
+	}
+
+	public void Tiravida(){
+		life--;
+		if(life<0)
+			Destroy(aranha);
 	}
 }

@@ -5,6 +5,7 @@ public class ControleMiniAranha : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Invoke("Kill",19);
 	}
 	
 	// Update is called once per frame
@@ -13,7 +14,7 @@ public class ControleMiniAranha : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D c){
-		rigidbody2D.velocity = new Vector2(Random.Range(5,10),0);
+		rigidbody2D.velocity = new Vector2(Random.Range(5,8),0);
 		if(c.collider.CompareTag("floor")){
 			int aux = Random.Range(0,2);
 			if(aux == 1){
@@ -23,4 +24,17 @@ public class ControleMiniAranha : MonoBehaviour {
 			}
 		}
 	}
+	void OnTriggerEnter2D(Collider2D c){
+		if(c.CompareTag("dardo")){
+			Destroy(c.gameObject);
+			Kill();
+		}
+	}
+
+	void Kill(){
+		int pontuacao = PlayerPrefs.GetInt("pontuacao");
+		PlayerPrefs.SetInt("pontuacao",++pontuacao);
+		Destroy(gameObject);
+	}
+	
 }

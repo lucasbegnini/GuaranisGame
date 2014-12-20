@@ -6,19 +6,10 @@ public class RandomMathmaker : MonoBehaviour {
 	private string PersonagemSelecionado;
 	private Vector3 posicao;
 
-
-	void Escape()
-	{
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-			PhotonNetwork.Disconnect();
-			Application.LoadLevel ("Menu");
-				}
-	}
 	// Use this for initialization
 	void Start () {
 		posicao = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, 0.0f);
-		getPersonagem ();
-		//PersonagemSelecionado = "Uiapuru";
+		PersonagemSelecionado = "Uiapuru";
 	
 		PhotonNetwork.ConnectUsingSettings("0.1");
 	}
@@ -26,15 +17,6 @@ public class RandomMathmaker : MonoBehaviour {
 	void OnGUI()
 	{
 		GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
-	}
-
-	void getPersonagem()
-	{
-		if (PlayerPrefs.GetInt ("escolha") == 1)
-			PersonagemSelecionado = "Uiapuru";
-		if (PlayerPrefs.GetInt ("escolha") == 2)
-			PersonagemSelecionado = "Guarana";
-		
 	}
 
 	void OnJoinedLobby()
@@ -55,16 +37,9 @@ public class RandomMathmaker : MonoBehaviour {
 
 		//NameNave = FindObjectOfType<GameStarter> ().naves[SelectArrow.nave].name.ToString ();
 		//Debug.Log(NameNave);
-		spawnPlayer ();
 
-
-	
-	}
-
-	void spawnPlayer()
-	{
 		GameObject personagem = PhotonNetwork.Instantiate(PersonagemSelecionado, posicao, Quaternion.identity, 0);
-		
+
 		//Ativa os controles do personagens
 		Controles controller = personagem.GetComponent<Controles>();
 		controller.enabled = true;
@@ -72,22 +47,19 @@ public class RandomMathmaker : MonoBehaviour {
 		camera.enabled = true;
 		VirtualJoystick shoot = personagem.GetComponent<VirtualJoystick> ();
 		shoot.enabled = true;
-		LifeMultiplayer life = personagem.GetComponent<LifeMultiplayer> ();
+		Life life = personagem.GetComponent<Life> ();
 		life.enabled = true;
-//		NetworkCharacter network = personagem.GetComponent<NetworkCharacter> ();
-//		network.enabled = true;
-		PolygonCollider2D Colisor = personagem.GetComponent<PolygonCollider2D> ();
+		NetworkCharacter network = personagem.GetComponent<NetworkCharacter> ();
+		network.enabled = true;
+		BoxCollider2D Colisor = personagem.GetComponent<BoxCollider2D> ();
 		Colisor.enabled = true;
 		Animator animacoes = personagem.GetComponent<Animator> ();
 		animacoes.enabled = true;
-		PosicaoIDPlayer ID = personagem.GetComponentInChildren<PosicaoIDPlayer> ();
-		ID.enabled = true;
 		//Ativa o colisor do personagem
-
+	
 	}
 	// Update is called once per frame
 	void Update () {
-		Escape ();
 	
 	}
 

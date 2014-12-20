@@ -15,7 +15,7 @@ GameObject:
   - 58: {fileID: 5827994}
   m_Layer: 10
   m_Name: miniaranha
-  m_TagString: Untagged
+  m_TagString: Aranha
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 128560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeff73d1b6fef654dbef266cbdfd9995, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d1d9ec59b630134b918634a9c2a7cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21228560

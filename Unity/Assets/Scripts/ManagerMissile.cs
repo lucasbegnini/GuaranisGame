@@ -19,7 +19,7 @@ public class ManagerMissile : MonoBehaviour {
 			rigidbody2D.velocity = new Vector2(-speed,0);
 		}
 		transform.position = playerCenter;
-	//	Pai = transform.parent.gameObject.GetComponent<Life>().Retornaid();
+		Pai = transform.parent.gameObject.GetComponent<Life>().Retornaid();
 		transform.parent = null;
 		Invoke("Kill",3f);
 	}
@@ -28,7 +28,11 @@ public class ManagerMissile : MonoBehaviour {
 	void Update () {
 	}
 
-
+	public int  Retornaid()
+	{
+		return PhotonNetwork.player.ID;
+		
+	}
 
 	void Starting(){
 		Vector3 playerCenter = transform.parent.transform.position;
@@ -50,10 +54,20 @@ public class ManagerMissile : MonoBehaviour {
 			Kill();
 	}
 
-	void Kill(){
+	void OnTriggerEnter2D(Collider2D c){
+		Debug.Log(c.gameObject);
+		if((c.gameObject.CompareTag("Aranha"))&&(c is CircleCollider2D)){
+			c.gameObject.GetComponent<Aranha>().Tiravida();
+			Destroy(gameObject);
+		}
+	}
 
+	void Kill(){
+		if(PhotonNetwork.connected)
+		PhotonNetwork.Destroy (gameObject);
+		else
 		Destroy(gameObject);
-	}  
+	}
 
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{

@@ -34,7 +34,7 @@ public class VirtualJoystick1 : MonoBehaviour {
 						{
 							characterController.GoRight();
 						} else {
-							characterController.Stop();
+							characterController.Idle();
 						}
 					}
 					

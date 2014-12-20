@@ -113,6 +113,7 @@ MonoBehaviour:
   velocidade: 8
   missile: {fileID: 100000, guid: e85de8defb730f3448158d81998f8714, type: 2}
   _isfacedRight: 0
+  edge: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,7 +128,7 @@ MonoBehaviour:
   limitMaxX: 14.8000002
   limitMinX: -14.5
   limitMaxY: 5
-  limitMinY: -11
+  limitMinY: -10
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6de2456d0c0e5fd46aae3f8d1ee3bfb7, type: 3}
+  m_Script: {fileID: 11500000, guid: 822cb900d8a93c240916a52113036789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   whatIsButton:

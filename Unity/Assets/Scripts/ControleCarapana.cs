@@ -8,14 +8,11 @@ public class ControleCarapana : MonoBehaviour {
 	private Vector2 _novaPosicao;
 	public float speed;
 	private Animator anim;
-	private Collider2D triggerColisor;
-	private Score setScore;
+	public int vida;
 	// Use this for initialization
 	void Start () {
-		setScore = GameObject.FindGameObjectWithTag ("score").GetComponent<Score> ();
+		vida = 20;
 		anim = GetComponent<Animator> ();
-		triggerColisor = GetComponent<Collider2D>();
-		triggerColisor.enabled = true;
 		_minTela = new Vector2(-11f,-12f);
 		_maxTela = new Vector2(11f,1f);
 		speed = 3f;
@@ -36,20 +33,15 @@ public class ControleCarapana : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D c){
-//		Debug.Log (c.gameObject.name);
 		if(c.gameObject.CompareTag("dardo")){
 			Destroy(c.gameObject);
-			setScore.setScore();
-			Handheld.Vibrate();
 			anim.SetBool("morrendo", true);
-			triggerColisor.enabled = false;
 			Invoke("Kill", 0.8f);
 
 		}
 	}
 
 	void Kill(){
-	
 		transform.parent.SendMessage("CriaCarapana");
 		Destroy(gameObject);
 	}

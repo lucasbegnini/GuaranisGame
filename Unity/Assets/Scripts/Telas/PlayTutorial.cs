@@ -18,8 +18,7 @@ public class PlayTutorial : MonoBehaviour {
 	
 	void LoadTela()
 	{
-		PlayerPrefs.SetInt ("multiplayer",0);
-		Application.LoadLevel ("SelecaoPersonagem");
+		Application.LoadLevel ("Carapanã");
 	}
 	// Update is called once per frame
 	void Update () {

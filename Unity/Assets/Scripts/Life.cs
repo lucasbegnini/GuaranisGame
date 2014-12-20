@@ -10,14 +10,9 @@ public class Life : MonoBehaviour {
 	private Collider2D ColisorPersonagem;
 	private int PlayerID;
 	private Animator anim;
-	Controles1 controle;
-	private SFXSinglePlayer sounds;
-	private Score setScore;
+
 	// Use this for initialization
 	void Start () {
-		controle = GetComponent<Controles1> ();
-		setScore = GameObject.FindGameObjectWithTag ("score").GetComponent<Score> ();
-		sounds = GameObject.FindGameObjectWithTag ("sfx").GetComponent<SFXSinglePlayer> ();
 		anim = GetComponent<Animator> ();
 		PlayerID = PhotonNetwork.player.ID;
 		Vida = 3; 
@@ -37,7 +32,11 @@ public class Life : MonoBehaviour {
 		}
 	
 	}
+	public int  Retornaid()
+	{
+		return PhotonNetwork.player.ID;
 
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -49,103 +48,98 @@ public class Life : MonoBehaviour {
 	void CheckLife()
 	{
 		if (Vida <= 0) {
-			Invoke("Die", 0.8f);
-			//Die();		
+			Die();		
 		}
 	}
 
 	void Die()
 	{
-			setScore.SaveScore ();
-		Handheld.Vibrate ();
-			Destroy (this.gameObject);
-			Application.LoadLevel (Application.loadedLevel);
-		
+		Destroy (this.gameObject);
+		Application.LoadLevel (Application.loadedLevel);
 	}
 
-	// Funçao para causar dano no personagem
-	void takeDamage(int dano)
-	{
-
-		//Desabilita os controles
-		controle.enabled = false;
-		//Primeiro sofre o dano 
-		for(int i = 0; i< dano; i++)
-		{
-			Vida--;
-			Destroy(_Folha[Vida]);
-		}
-
-
-	
-			//Destroi o objeto Online - Dardo
-			//Destroy(ColisorPersonagem.gameObject);
-			
-
-		//Entra no modo Ghost
-		Ghost();
-		//Executa a animaçao morrendo
-		AnimacaoMorrendo();
-		//Faz o Check Se nao perdeu toda a vida ja
-		CheckLife();
-	}
-
+//	void OnCollisionEnter2D(Collision2D other)
+//	{	
+//
+//		if (other.collider.tag == "dardo" && other.transform.parent == transform){
+//			//Tira o life
+//			Vida--;		
+//			// Destroi o Dardo
+//			//PhotonNetwork.Destroy(gameObject);
+//			Destroy(other.gameObject);
+//			CheckLife ();
+//		}
+//
+//
+//	}
 
 	void OnTriggerEnter2D(Collider2D c)
 	{
-		//O Objeto colidido se torna um objeto da classe 
+
 		ColisorPersonagem = c;
-
-	
-		//Verifica se o objeto colidido foi o carapana
-		if (ColisorPersonagem.gameObject.CompareTag("carapana")) 
-			{
-			//Habilita o som de morte
-			sounds.setMorrendo (true);
-				//Sofre 1 de dano
-				takeDamage(1);
+		if(!PhotonNetwork.connected)
+		{
+		if (ColisorPersonagem.gameObject.CompareTag("Aranha")) {
+		
+			Vida--;
+			Destroy(_Folha[Vida]);
+			CheckLife();
+			Ghost();
+			AnimacaoMorrendo();
 			}
-	}//Fim do Colisor
+		}
 
+		if (PhotonNetwork.connected)
+		{
 
+			if(ColisorPersonagem.gameObject.CompareTag("dardo") && (c.gameObject.GetComponent<ManagerMissile>().Pai != Retornaid())  )
+			{
+				Vida--;		
+				// Destroi o Dardo
+				Destroy(_Folha[Vida]);
+				PhotonNetwork.Destroy(ColisorPersonagem.gameObject);
+				CheckLife();
+			}
+		}
+	}
 
-	//Metodo para deixar o personagem sem sofrere dano por um tempo
-	// apos ter sofrido dano
+	void OnCollisionEnter2D(Collision2D c)
+	{
+		if(c.collider.CompareTag("Aranha")){
+			
+			Vida--;
+			Destroy(_Folha[Vida]);
+			CheckLife();
+			Ghost();
+			AnimacaoMorrendo();
+		}
+	}
+
 	void Ghost()
 	{
-		//Ignora a coliçao entre o personagem e o objeto colidido - Seja Carapana(SinglePlay) ou um dardo(Multiplayer)
+		Debug.Log ("Virou Fantasma");
 		Physics2D.IgnoreCollision (ColisorPersonagem, collider2D, true);
+	
+
+		//Invoke ("Normal", 1f);
 	}
 
-
-	//Animaçao do personagem morrendo
 	void AnimacaoMorrendo()
 	{
-		//Ativa a animaçao do personagem morrendo
 		anim.SetBool ("morrendo", true);
-		//Inova o metodo normal em seguida 
-		Invoke ("Normal", 2f);
-		Invoke ("NormalAnimacao", 1f);
+		Invoke ("Normal", 0.8f);
 	}
 
-	void NormalAnimacao()
-	{		
-		//Desativa a animaçao morrendo
-		anim.SetBool ("morrendo", false);
-		//Habilita o controle de volta
-		controle.enabled = true;
-
-	}
-	//Metodo para fazer o personagem sair do modo Ghost e desativar a animaçao morrendo
 	void Normal()
 	{
-
-		//Seta possivel a colisao entre o personagem e objeto colidido novamente
+		Debug.Log ("Voltou ao normal");
+		anim.SetBool ("morrendo", false);
 		Physics2D.IgnoreCollision (ColisorPersonagem, collider2D, false);
 
-		//seta o fim do som de morrendo
-		sounds.setMorrendo (false);
 	}
 
-
-}// Fim da classes
+	void MovimentoDano()
+	{
+		transform.position = new Vector3 (transform.position.x - 2, transform.position.y - 2, transform.position.z);
+	}
+}
